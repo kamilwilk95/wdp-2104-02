@@ -2,7 +2,7 @@
 
 
 # WDP Projekt Zespołowy
-
+test
 ## Inicjacja projektu
 
 Po sklonowaniu projektu, zainstaluj wymagane paczki komendą `yarn install` (lub `npm install`).
