@@ -30,11 +30,6 @@ const ProductSearch = () => (
           </ul>
         </li>
       </ul>
-      <select name='' id=''>
-        <option value=''>Select a category</option>
-        <option value='1'>Select a option</option>
-        <option value='2'>Select a cat</option>
-      </select>
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
