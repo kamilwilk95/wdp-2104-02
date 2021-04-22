@@ -1,4 +1,10 @@
 const initialState = {
+  brand: [
+    {
+      id: 1,
+      mark: 'http:\\',
+    },
+  ],
   categories: [
     { id: 'bed', name: 'Bed' },
     { id: 'chair', name: 'Chair' },
