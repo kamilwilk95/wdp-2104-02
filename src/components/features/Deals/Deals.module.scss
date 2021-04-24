@@ -1,0 +1,10 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 5rem 0;
+
+  .component {
+    background-color: red;
+    margin: auto;
+  }
+}
