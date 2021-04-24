@@ -12,3 +12,13 @@ class BrandBox extends React.Component {
 // BrandBox.propTypes = {};
 
 export default BrandBox;
+
+/* import { connect } from 'react';
+import  BrandMarks from '../../layout/BrandMarks/BrandMarks';
+import { getBrandMarks } from '../../../redux/brandsRedux';
+
+const mapStateToProps = state => ({
+  brands: getBrandMarks(state),
+});
+
+export default connect(mapStateToProps, null)(BrandMarks); */

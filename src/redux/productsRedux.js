@@ -23,7 +23,6 @@ const addProductToFavourite = (state, action) => {
   });
 };
 
-
 const addMyRating = (state, action) => {
   return state.map(currentStateElement => {
     if (currentStateElement.id !== action.payload.id) {
@@ -33,7 +32,7 @@ const addMyRating = (state, action) => {
       ...currentStateElement,
       myRating: action.payload.myRating,
     };
-   });
+  });
 };
 
 const addProductToCompare = (state, action) => {
@@ -59,7 +58,6 @@ const removeProductFromCompare = (state, action) => {
         compare: false,
       };
     }
-
   });
 };
 /* action name creator */
