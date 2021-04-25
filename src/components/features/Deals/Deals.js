@@ -4,9 +4,9 @@ import styles from './Deals.module.scss';
 
 class Deals extends React.Component {
   render() {
-    // const { products } = this.props;
+    const { products } = this.props;
 
-    // const dealsProducts = products.filter(item => item.deals === true);
+    const dealsProducts = products.filter(item => item.deals === true);
 
     return (
       <div className={styles.root}>
@@ -14,11 +14,9 @@ class Deals extends React.Component {
           <div className='container'>
             <div className='row'>
               <div className='col'>
-                {/* {dealsProducts.map(item => (
-                  <div key={item.id}>
-                    {item.photoBackground}
-                  </div>
-                ))}*/}
+                {dealsProducts.map(item => (
+                  <div key={item.id}>{item.photoBackground}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -35,6 +33,10 @@ Deals.propTypes = {
       deals: PropTypes.bool,
     })
   ),
+};
+
+Deals.defaultProps = {
+  products: [],
 };
 
 export default Deals;
