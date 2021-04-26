@@ -12,12 +12,16 @@ class Deals extends React.Component {
       <div className={styles.root}>
         <div className={styles.component}>
           <div className='container'>
-            <div className='row'>
-              <div className='col'>
-                {dealsProducts.map(item => (
-                  <div key={item.id}>{item.photoBackground}</div>
-                ))}
-              </div>
+            <div className={`row ${styles.dealsRow}`}>
+              {dealsProducts.map(item => (
+                <div key={item.id} className={`col ${styles.deals}`}>
+                  <img
+                    className={styles.photo}
+                    alt='product_deals'
+                    src={item.photoBackground}
+                  ></img>
+                </div>
+              ))}
             </div>
           </div>
         </div>

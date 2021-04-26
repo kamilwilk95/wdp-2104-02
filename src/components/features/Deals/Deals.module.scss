@@ -1,10 +1,22 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  padding: 5rem 0;
+  background-color: $color-light-primary;
+  border: 1px solid $color-light-secondary;
+  margin: 2rem;
 
-  .component {
-    background-color: red;
-    margin: auto;
+  .dealsRow {
+    justify-content: left;
+
+    .deals {
+      flex-basis: 25%;
+      padding: 5px;
+    }
+  }
+
+  .photo {
+    display: inline;
+    width: 200px;
+    height: 160px;
   }
 }
