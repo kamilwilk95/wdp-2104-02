@@ -2,15 +2,23 @@
 
 .root {
   position: relative;
+  
   .footerMenu {
     background-color: $footer-bg;
     padding: 3rem 0;
 
     .menuWrapper {
+  
       h6 {
         color: $color-light-primary;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
+        @include breakpoint(mobileonly) {
+          font-size: 10px;
+        }    
+        @include breakpoint(phablet){
+          font-size: 12px;
+        }    
       }
 
       ul {
@@ -21,9 +29,9 @@
           a {
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $list-element-text-color;
             @extend %text-hover-before;
-
+      
             &:hover {
               @extend %text-hover-after;
             }
@@ -42,24 +50,101 @@
       }
     }
   }
-
+   
   .bottomBar {
     background-color: $footer-claim-bg;
+    display: flex;
+    flex-wrap: wrap;
 
     :global(.container) > :global(.row) {
       height: 95px;
     }
+    
+    .text {
+      @include breakpoint(mobileonly) {
+        flex-basis: 100%;
+        padding-left: 0;
+        color: $color-light-primary;
+        text-align: center !important;
+        font-size: 10px;
+      }
+      @include breakpoint(phablet){
+        flex-basis: 100%;
+        color: $color-light-primary;
+        text-align: center !important;
+        font-size: 10px;
+      }  
 
+      @include breakpoint(tablet) {
+        flex-basis: 100%;
+        text-align: center !important;
+        font-size: 10px;
+      } 
+      @include breakpoint(laptop) {
+        flex-basis: 30%;
+      }  
+      @include breakpoint(desktop) {
+        flex-basis: 33%;
+      }  
+    }
+    
     .copyright {
+      @include breakpoint(mobileonly) {
+        flex-basis: 100%;
+        padding-left: 0;
+      }
+      @include breakpoint(phablet){
+        flex-basis: 100%;
+      }  
+      @include breakpoint(tablet) {
+        flex-basis: 50%;
+        text-align: left !important;
+        padding-left: 0 !important;
+      }
+      @include breakpoint(laptop) {
+        flex-basis: 40%;
+      }  
+      @include breakpoint(desktop) {
+        flex-basis: 33%;
+      }  
       p {
         margin: 0;
         color: $list-element-text-color;
         font-size: 14px;
         line-height: 26px;
+        @include breakpoint(mobileonly) {
+          font-size: 8px;
+        }  
+        @include breakpoint(tablet) {
+          text-align: left;
+          font-size: 10px;
+        }
       }
     }
 
     .socialMedia {
+      @include breakpoint(mobileonly) {
+        flex-basis: 100%;
+        font-size: 8px;
+        text-align: center !important;
+        padding-left: 0;
+      } 
+      @include breakpoint(phablet){
+        flex-basis: 100%;
+        font-size: 10px;
+        text-align: center !important;
+        padding-left: 0;
+      }  
+      @include breakpoint(tablet) {
+        flex-basis: 40%;
+        text-align: right !important;
+      }
+      @include breakpoint(laptop) {
+        flex-basis: 30%;
+      }  
+      @include breakpoint(desktop) {
+        flex-basis: 33%;
+      }  
       ul {
         margin: 0;
         padding: 0;

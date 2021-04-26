@@ -12,6 +12,7 @@ const Homepage = () => (
     <FeatureBoxes />
     <Deals />
     <NewFurniture />
+    <BrandMarks />
   </div>
 );
 
