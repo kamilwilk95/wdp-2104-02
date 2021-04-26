@@ -1,24 +1,10 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-import styles from './BrandBox.module.scss';
+import { connect } from 'react-redux';
 
-class BrandBox extends React.Component {
-  // state = {};
-  render() {
-    return <div className={styles.component}>BrandBox</div>;
-  }
-}
+import Brand from '../../features/Brand/Brand';
 
-// BrandBox.propTypes = {};
-
-export default BrandBox;
-
-/* import { connect } from 'react';
-import  BrandMarks from '../../layout/BrandMarks/BrandMarks';
-import { getBrandMarks } from '../../../redux/brandsRedux';
+import { getBrandMarks } from '../../../redux/brandsRedux.js';
 
 const mapStateToProps = state => ({
   brands: getBrandMarks(state),
 });
-
-export default connect(mapStateToProps, null)(BrandMarks); */
+export default connect(mapStateToProps)(Brand);

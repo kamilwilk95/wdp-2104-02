@@ -1,5 +1,5 @@
 /* selectors */
-// export const getBrandMarks = ({ brands }) => brands;
+export const getBrandMarks = ({ brands }) => brands;
 
 /* action name creator */
 
@@ -8,9 +8,9 @@
 /* action creators */
 
 /* reducer */
-/*export default function reducer(statePart = [], action = {}) {
+export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     default:
       return statePart;
   }
-}*/
+}
