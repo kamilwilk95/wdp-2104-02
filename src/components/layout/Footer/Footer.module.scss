@@ -21,7 +21,7 @@
           a {
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $list-element-text-color;
             @extend %text-hover-before;
 
             &:hover {

@@ -18,7 +18,7 @@
         @extend %text-hover-before;
 
         &:hover {
-          color: $primary;
+          // color: $primary;
           text-decoration: none;
           @extend %text-hover-after;
         }
