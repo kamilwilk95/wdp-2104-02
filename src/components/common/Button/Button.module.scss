@@ -1,11 +1,6 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 .main {
-  background-color: #2a2a2a;
-  // color: #ffffff;
   background-color: $footer-claim-bg;
   color: $color-light-primary;
   font-size: 16px;
@@ -33,8 +28,7 @@
 .outline {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  // color: #2a2a2a;
+  border: 1px solid $footer-claim-bg;
   border: 1px solid $text-color;
   color: $text-color;
   font-size: 13px;
@@ -42,7 +36,7 @@
   @extend %buttons-hover-before;
 
   &:not(.noHover):hover {
-    background-color: #2a2a2a;
+    background-color: $footer-claim-bg;
     @extend %buttons-hover-after;
     background-color: $text-color;
     color: $color-light-primary;
@@ -57,7 +51,6 @@
   line-height: 22px;
   background-color: $text-color;
   color: $color-light-primary;
-
 }
 
 .outlineCompare {
@@ -68,5 +61,4 @@
   line-height: 22px;
   background-color: $text-color;
   color: $color-light-primary;
-
 }
