@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Brand from '../../features/Brand/Brand';
+import Brand from './Brand';
 
 import { getBrandMarks } from '../../../redux/brandsRedux.js';
 
