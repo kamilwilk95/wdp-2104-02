@@ -4,12 +4,19 @@ import NewFurniture from './NewFurniture';
 
 import { getAll } from '../../../redux/categoriesRedux.js';
 import { getNew } from '../../../redux/productsRedux.js';
+import { getRwdMode } from '../../../redux/configRedux.js';
 
-import { addFavourite, addCompare, removeCompare, addRating } from '../../../redux/productsRedux';
+import {
+  addFavourite,
+  addCompare,
+  removeCompare,
+  addRating,
+} from '../../../redux/productsRedux';
 
 const mapStateToProps = state => ({
   categories: getAll(state),
   products: getNew(state),
+  rwdMode: getRwdMode(state),
 });
 
 const mapDispatchToProps = dispatch => ({
