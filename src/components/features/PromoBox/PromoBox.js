@@ -23,6 +23,20 @@ class PromoBox extends React.Component {
   };
 
   /* Promo Product */
+
+  componentDidMount() {
+    setInterval(() => {
+      const promoProductsCount = this.props.saleProducts.length;
+      let product = this.state.activeProduct;
+
+      if (product === promoProductsCount - 1) {
+        this.handleProductChange(0);
+      } else {
+        this.handleProductChange(product + 1);
+      }
+    }, 3000);
+  }
+
   handleProductChange(newProduct) {
     this.setState({ productClassName: `${styles.fadeStart}` });
     setTimeout(() => {
@@ -30,6 +44,7 @@ class PromoBox extends React.Component {
       this.setState({ productClassName: `${styles.fadeEnd}` });
     }, 600);
   }
+
   /* Promo Product End*/
 
   /* Promo Gallery */
@@ -96,8 +111,8 @@ class PromoBox extends React.Component {
                 </div>
               </div>
               {saleProducts.slice(activeProduct, activeProduct + 1).map(item => (
-                <div key={item.id}>
-                  <PromoProductBox {...item} className={this.state.productClassName} />
+                <div key={item.id} className={this.state.productClassName}>
+                  <PromoProductBox {...item} />
                 </div>
               ))}
             </div>

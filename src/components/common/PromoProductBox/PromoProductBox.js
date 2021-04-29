@@ -26,7 +26,7 @@ const PromoProductBox = ({
   className,
 }) => (
   <div className={styles.root}>
-    <div className={`${styles.photo} ${className}`}>
+    <div className={styles.photo}>
       <img className={styles.image} src={photoBackground} alt={name} />
       <div className={styles.buttons}>
         <Button variant='small'>

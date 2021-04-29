@@ -68,15 +68,11 @@
 .fadeStart {
   animation-name: fade-start;
   animation-duration: $transition;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .fadeEnd {
   animation-name: fade-end;
   animation-duration: $transition;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 @keyframes fade-start {
