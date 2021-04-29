@@ -13,9 +13,11 @@
 
 .brandBox {
   display: flex;
-  border: 1px solid $color-light-secondary;
+  border-top: 1px solid $color-light-secondary;
+  border-bottom: 1px solid $color-light-secondary;
   margin-right: auto;
   margin-left: auto;
+  padding: 10px 0;
 }
 
 .photo {
@@ -33,7 +35,8 @@
 .thumbnail {
   background-color: $black-primary;
   justify-content: space-between;
-  border: 1px solid $global-border-color;
+  height: 60px;
+  margin-top: 5px;
 }
 
 .arrow {

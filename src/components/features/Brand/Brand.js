@@ -11,7 +11,7 @@ class Brand extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className={`row ${styles.marksRow}`}>
-            <div className={styles.brandBox}>
+            <div className={`col ${styles.brandBox}`}>
               <div className={`col ${styles.thumbnail}`}>
                 <Button className={styles.arrowButton}>
                   <i className={[styles.arrow, styles.left].join(' ')}></i>
