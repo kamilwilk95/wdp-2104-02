@@ -8,43 +8,41 @@ class Deals extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className={styles.component}>
-          <div className='container'>
-            <div className={'row'}>
-              <div className={`col-6 ${styles.dealsBig}`}>
-                {dealsBig.map(item => (
-                  <div key={item.id} className={styles.dealsBigBox}>
+        <div className='container'>
+          <div className={`row ${styles.dealsBox}`}>
+            <div className={`col-6 ${styles.dealsBig}`}>
+              {dealsBig.map(item => (
+                <div key={item.id} className={styles.dealsBigBox}>
+                  <img
+                    className={styles.photoBig}
+                    alt='product_deals_big'
+                    src={item.photoBackground}
+                  ></img>
+                </div>
+              ))}
+            </div>
+            <div className={`col-6 ${styles.dealsSmall}`}>
+              <div className={`row ${styles.dealsRow}`}>
+                {dealsSmallUp.map(item => (
+                  <div key={item.id} className={styles.dealsSmallBox}>
                     <img
-                      className={styles.photoBig}
-                      alt='product_deals_big'
+                      className={styles.photoSmall}
+                      alt='product_deals_small_up'
                       src={item.photoBackground}
                     ></img>
                   </div>
                 ))}
               </div>
-              <div className={`col-6 ${styles.dealsSmall}`}>
-                <div className={`row ${styles.dealsRow}`}>
-                  {dealsSmallUp.map(item => (
-                    <div key={item.id} className={styles.dealsSmallBox}>
-                      <img
-                        className={styles.photoSmall}
-                        alt='product_deals_small_up'
-                        src={item.photoBackground}
-                      ></img>
-                    </div>
-                  ))}
-                </div>
-                <div className={`row ${styles.dealsRow}`}>
-                  {dealsSmallDown.map(item => (
-                    <div key={item.id} className={styles.dealsSmallBox}>
-                      <img
-                        className={styles.photoSmall}
-                        alt='product_deals_small_down'
-                        src={item.photoBackground}
-                      ></img>
-                    </div>
-                  ))}
-                </div>
+              <div className={`row ${styles.dealsRow}`}>
+                {dealsSmallDown.map(item => (
+                  <div key={item.id} className={styles.dealsSmallBox}>
+                    <img
+                      className={styles.photoSmall}
+                      alt='product_deals_small_down'
+                      src={item.photoBackground}
+                    ></img>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

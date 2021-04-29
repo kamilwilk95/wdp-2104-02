@@ -637,8 +637,6 @@ const initialState = {
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/arviken-sofa-trzyosobowa-rozkladana-bezowy__0277586_pe416615_s5.jpg?f=xxss',
-      deals: true,
-      dealsSmallDown: true,
     },
     {
       id: 'Evertsberg-5',
@@ -679,6 +677,8 @@ const initialState = {
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/bastubo-rozkladana-sofa-3-osobowa-z-szezlongiem-jasnoszary__0940238_pe794894_s5.jpg?f=xxs',
+      deals: true,
+      dealsSmallDown: true,
     },
     {
       id: 'Evertsberg-9',
