@@ -1,66 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ProductBox.module.scss';
+import styles from './PromoProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import {
+  faExchangeAlt,
+  faShoppingBasket,
+  faEye,
+} from '@fortawesome/free-solid-svg-icons';
 import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarRating from '../StarRating/StarRating';
 
-const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
-  event.preventDefault();
-  addFavourite({ id: id, isFavourite: !isFavourite });
-};
-
-const toggleCompare = (
-  id,
-  isCompare,
-  event,
-  addCompare,
-  removeCompare,
-  canAddCompare
-) => {
-  event.preventDefault();
-  if (isCompare === false && canAddCompare) {
-    addCompare(id);
-  } else {
-    removeCompare(id);
-  }
-};
-
-const ProductBox = ({
+const PromoProductBox = ({
   name,
   price,
-  promo,
   stars,
   photoBackground,
   oldPrice,
-  id,
-  addFavourite,
   isFavourite,
   compare,
   myRating,
   addRating,
-  addCompare,
-  removeCompare,
-  canAddCompare,
+  id,
 }) => (
   <div className={styles.root}>
-    <div
-      className={styles.photo}
-      style={{
-        backgroundImage: `url(${photoBackground})`,
-      }}
-    >
-      {promo && <div className={styles.sale}>{promo}</div>}
+    <div className={styles.photo}>
+      <img className={styles.image} src={photoBackground} alt={name} />
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
         <Button variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
       </div>
+      <div className={styles.countdown}>
+        <div className={styles.number}>
+          <p>24 Days</p>
+        </div>
+        <div className={styles.number}>
+          <p>10 hours</p>
+        </div>
+        <div className={styles.number}>
+          <p>15 mins</p>
+        </div>
+        <div className={styles.number}>
+          <p>46 secs</p>
+        </div>
+      </div>
     </div>
+
     <div className={styles.content}>
       <h5>{name}</h5>
       <div className={styles.stars}>
@@ -71,11 +58,12 @@ const ProductBox = ({
     <div className={styles.actions}>
       <div className={styles.outlines}>
         <div>
+          <Button variant='outline' className={styles.button}>
+            <FontAwesomeIcon icon={faEye}>Quick View</FontAwesomeIcon>
+          </Button>
           <Button
             variant={isFavourite ? 'outlineFavourites' : 'outline'}
-            onClick={event =>
-              addFurnitureToFavourite(id, isFavourite, event, addFavourite)
-            }
+            className={styles.button}
           >
             <FontAwesomeIcon
               icon={faHeart}
@@ -84,19 +72,7 @@ const ProductBox = ({
               Favourite
             </FontAwesomeIcon>
           </Button>
-          <Button
-            variant={compare ? 'outlineCompare' : 'outline'}
-            onClick={event =>
-              toggleCompare(
-                id,
-                compare,
-                event,
-                addCompare,
-                removeCompare,
-                canAddCompare
-              )
-            }
-          >
+          <Button className={styles.button} variant='outline'>
             <FontAwesomeIcon
               icon={faExchangeAlt}
               className={compare ? styles.compare : ''}
@@ -106,25 +82,17 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
-
       <div className={styles.price}>
+        {oldPrice && <div className={styles.oldprice}>$ {oldPrice}</div>}
         <Button noHover variant='small' className={styles.buttonPrice}>
           $ {price}
         </Button>
       </div>
-      {oldPrice && (
-        <div className={styles.oldprice}>
-          <Button noHover variant='small' className={styles.buttonPrice}>
-            $ {oldPrice}
-          </Button>
-        </div>
-      )}
     </div>
   </div>
 );
 
-ProductBox.propTypes = {
-  //children: PropTypes.node,
+PromoProductBox.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
@@ -137,9 +105,6 @@ ProductBox.propTypes = {
   compare: PropTypes.bool,
   myRating: PropTypes.any,
   addRating: PropTypes.func,
-  addCompare: PropTypes.func,
-  removeCompare: PropTypes.func,
-  canAddCompare: PropTypes.bool,
 };
 
-export default ProductBox;
+export default PromoProductBox;
