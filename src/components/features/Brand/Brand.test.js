@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import BrandMarks from './BrandMarks';
+import Brand from './Brand';
 
-describe('Component BrandMarks', () => {
+describe('Component Brand', () => {
   it('should render without crashing', () => {
-    const component = shallow(<BrandMarks />);
+    const component = shallow(<Brand />);
     expect(component).toBeTruthy();
   });
 });
