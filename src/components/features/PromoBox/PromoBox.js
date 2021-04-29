@@ -6,9 +6,10 @@ import PromoGallery from '../../common/PromoGallery/PromoGallery';
 import styles from './PromoBox.module.scss';
 
 class PromoBox extends React.Component {
+  leftAction = this.changeImagePrev.bind(this);
+  rightAction = this.changeImageNext.bind(this);
   propTypes = {
     products: PropTypes.array,
-    promoImages: PropTypes.array,
     addFavourite: PropTypes.func,
     saleProducts: PropTypes.array,
     promoProducts: PropTypes.array,
@@ -17,7 +18,50 @@ class PromoBox extends React.Component {
   state = {
     activeProduct: 0,
     activePromoImage: 0,
+    imageClassName: styles.fadeEnd,
+    productClassName: styles.fadeEnd,
   };
+
+  /* Promo Product */
+  handleProductChange(newProduct) {
+    this.setState({ productClassName: `${styles.fadeStart}` });
+    setTimeout(() => {
+      this.setState({ activeProduct: newProduct });
+      this.setState({ productClassName: `${styles.fadeEnd}` });
+    }, 600);
+  }
+  /* Promo Product End*/
+
+  /* Promo Gallery */
+  handleImageChange(newImage) {
+    this.setState({ imageClassName: `${styles.fadeStart}` });
+    setTimeout(() => {
+      this.setState({ activePromoImage: newImage });
+      this.setState({ imageClassName: `${styles.fadeEnd}` });
+    }, 600);
+  }
+
+  changeImagePrev(event) {
+    event.preventDefault();
+    let currentImage = this.state.activePromoImage;
+
+    if (currentImage !== 0) {
+      this.handleImageChange(currentImage - 1);
+    }
+  }
+
+  changeImageNext(event) {
+    event.preventDefault();
+    let currentImage = this.state.activePromoImage;
+    const { promoProducts } = this.props;
+
+    const imagesCount = promoProducts.length;
+
+    if (currentImage < imagesCount - 1) {
+      this.handleImageChange(currentImage + 1);
+    }
+  }
+  /* Promo Gallery End */
 
   render() {
     const { saleProducts, promoProducts } = this.props;
@@ -29,7 +73,12 @@ class PromoBox extends React.Component {
     for (let i = 0; i < salesCount; i++) {
       dots.push(
         <li>
-          <a className={i === activeProduct && styles.active}>product {i}</a>
+          <a
+            onClick={() => this.handleProductChange(i)}
+            className={i === activeProduct && styles.active}
+          >
+            product {i}
+          </a>
         </li>
       );
     }
@@ -48,14 +97,19 @@ class PromoBox extends React.Component {
               </div>
               {saleProducts.slice(activeProduct, activeProduct + 1).map(item => (
                 <div key={item.id}>
-                  <PromoProductBox {...item} />
+                  <PromoProductBox {...item} className={this.state.productClassName} />
                 </div>
               ))}
             </div>
             <div className={styles.galleryBox}>
               {promoProducts.slice(activePromoImage, activePromoImage + 1).map(item => (
                 <div key={item.id}>
-                  <PromoGallery {...item} />
+                  <PromoGallery
+                    {...item}
+                    leftAction={this.leftAction}
+                    rightAction={this.rightAction}
+                    className={this.state.imageClassName}
+                  />
                 </div>
               ))}
             </div>
