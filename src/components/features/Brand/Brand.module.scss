@@ -1,24 +1,19 @@
 @import "../../../styles/settings.scss";
-
-.root {
-  background-color: $color-light-primary;
-  border: 1px solid $color-light-secondary;
-  margin: 2rem;
   
-  .marksRow{
-    justify-content: left;
-    .mark {
-      flex-basis: 10%;
-      max-width: 25%;
-      padding: 5px;
-    }
+.marksRow{
+  justify-content: left;
+  margin-bottom: 20px;
+  
+  .mark {
+    flex-basis: 10%;
+    max-width: 25%;
+    padding: 5px;
+    text-align: center;
   }
+}
 
-  .photo {
-    // position: relative;
-    display: inline;
-    width: 80px;
-    height: 60px;
-    // padding: 10px;
-  }
+.photo {
+  display: inline;
+  width: 80px;
+  height: 60px;
 }
