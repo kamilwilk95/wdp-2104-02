@@ -2,17 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './MenuBar.module.scss';
 
 const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
-      <div className='row align-items-center'>
-        <div className='col'>
+      <div className={`row ${styles.menuBarRow}`}>
+        <div className={`col ${styles.menuBarSearch}`}>
           <ProductSearch />
         </div>
         <div className={'col-auto ' + styles.menu}>
+          <FontAwesomeIcon className={styles.icon} icon={faBars} />
           <ul>
             <li>
               <a href='#' className={styles.active}>
