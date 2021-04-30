@@ -10,10 +10,20 @@ import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
 const headerText = ['featured', 'top seller', 'sale off', 'top rated'];
+const photoNumber = 6;
 
 const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
   event.preventDefault();
   addFavourite({ id: id, isFavourite: !isFavourite });
+};
+
+const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) => {
+  console.log(thumbnailLength, activeGalleryLine);
+  if (thumbnailLength / photoNumber <= activeGalleryLine + 1) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 const toggleCompare = (
@@ -40,12 +50,17 @@ const Gallery = ({
   addCompare,
   removeCompare,
   canAddCompare,
+  handleChangeCategory,
+  handleChangeGalleryLine,
+  rightArrow,
+  activeGalleryLine,
+  leftArrow,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
   const activePhoto = photos[0];
 
   const thumbnail = photos
-    .filter((item, index) => index < 6)
+    .slice(activeGalleryLine * photoNumber, (activeGalleryLine + 1) * photoNumber)
     .map(item => {
       return (
         <div
@@ -75,6 +90,7 @@ const Gallery = ({
                 className={
                   styles.navLink + ' ' + (item === activeCategorySales && styles.active)
                 }
+                onClick={() => handleChangeCategory(item)}
               >
                 {item}
               </a>
@@ -154,11 +170,19 @@ const Gallery = ({
               </div>
             </div>
             <div className={'row ' + styles.thumbnail}>
-              <button className={styles.arrowButton}>
+              <button
+                className={styles.arrowButton}
+                disabled={activeGalleryLine === 0}
+                onClick={() => handleChangeGalleryLine(leftArrow)}
+              >
                 <i className={[styles.arrow, styles.left].join(' ')}></i>
               </button>
               {thumbnail}
-              <button className={styles.arrowButton}>
+              <button
+                className={styles.arrowButton}
+                onClick={() => handleChangeGalleryLine(rightArrow)}
+                disabled={isDisabledRightArrow(photos.length, activeGalleryLine)}
+              >
                 <i className={[styles.arrow, styles.right].join(' ')}></i>
               </button>
             </div>
@@ -170,13 +194,18 @@ const Gallery = ({
 };
 
 Gallery.propTypes = {
-  products: PropTypes.object,
+  products: PropTypes.array,
   activeCategorySales: PropTypes.string,
   addFavourite: PropTypes.func,
   addRating: PropTypes.func,
   addCompare: PropTypes.func,
   removeCompare: PropTypes.func,
   canAddCompare: PropTypes.bool,
+  handleChangeCategory: PropTypes.func,
+  handleChangeGalleryLine: PropTypes.func,
+  rightArrow: PropTypes.string,
+  activeGalleryLine: PropTypes.number,
+  leftArrow: PropTypes.string,
 };
 
 export default Gallery;

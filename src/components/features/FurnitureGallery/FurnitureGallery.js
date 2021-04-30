@@ -7,10 +7,34 @@ import Gallery from '../../common/Gallery/Gallery';
 import Button from '../../common/Button/Button';
 
 const TOP_SELLER = 'top seller';
+const FEATURED = 'featured';
+const SALE_OFF = 'sale off';
+const TOP_RATED = 'top rated';
+const RIGHT_ARROW = 'rightArrow';
+const LEFT_ARROW = 'leftArrow';
 
 export class FurnitureGallery extends Component {
   state = {
     activeCategorySales: TOP_SELLER,
+    activeGalleryLine: 0,
+  };
+
+  handleChangeCategory = name => {
+    this.setState({
+      activeCategorySales: name,
+    });
+  };
+
+  handleChangeGalleryLine = changingButtons => {
+    if (changingButtons === RIGHT_ARROW) {
+      this.setState(prevState => ({
+        activeGalleryLine: prevState.activeGalleryLine + 1,
+      }));
+    } else {
+      this.setState(prevState => ({
+        activeGalleryLine: prevState.activeGalleryLine - 1,
+      }));
+    }
   };
 
   render() {
@@ -24,6 +48,15 @@ export class FurnitureGallery extends Component {
       switch (activeCategorySales) {
         case TOP_SELLER: {
           return product.topSeller;
+        }
+        case FEATURED: {
+          return product.featured;
+        }
+        case SALE_OFF: {
+          return product.saleOff;
+        }
+        case TOP_RATED: {
+          return product.topRated;
         }
         default:
           return null;
@@ -43,6 +76,11 @@ export class FurnitureGallery extends Component {
                 addCompare={addCompare}
                 removeCompare={removeCompare}
                 canAddCompare={canAddCompare < 4 ? true : false}
+                handleChangeCategory={this.handleChangeCategory}
+                handleChangeGalleryLine={this.handleChangeGalleryLine}
+                rightArrow={RIGHT_ARROW}
+                leftArrow={LEFT_ARROW}
+                activeGalleryLine={this.state.activeGalleryLine}
               />
             </div>
             <div className='col-6'>

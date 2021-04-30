@@ -229,6 +229,8 @@ const initialState = {
         'https://umeblowana.com/userdata/public/gfx/5379/Komplet-mebli-do-lazienki-w-stylu-loft-80-cm.jpg',
       isFavourite: false,
       compare: false,
+      featured: true,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-14',
