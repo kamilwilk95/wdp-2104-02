@@ -29,7 +29,7 @@ class Deals extends React.Component {
               ))}
             </div>
             <div className={`col-6 ${styles.dealsSmall}`}>
-              <div className={`row ${styles.dealsRow}`}>
+              <div className='row'>
                 {dealsSmallUp.map(item => (
                   <div key={item.id} className={styles.dealsSmallBox}>
                     <img
@@ -40,7 +40,7 @@ class Deals extends React.Component {
                   </div>
                 ))}
               </div>
-              <div className={`row ${styles.dealsRow}`}>
+              <div className='row'>
                 {dealsSmallDown.map(item => (
                   <div key={item.id} className={styles.dealsSmallBox}>
                     <img

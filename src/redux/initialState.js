@@ -52,7 +52,7 @@ const initialState = {
       isFavourite: true,
       topSeller: true,
       deals: true,
-      dealsSmallUp: true,
+      dealsSmallDown: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -162,6 +162,8 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      deals: true,
+      dealsSmallUp: true,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -677,8 +679,6 @@ const initialState = {
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/bastubo-rozkladana-sofa-3-osobowa-z-szezlongiem-jasnoszary__0940238_pe794894_s5.jpg?f=xxs',
-      deals: true,
-      dealsSmallDown: true,
     },
     {
       id: 'Evertsberg-9',

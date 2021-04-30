@@ -47,20 +47,29 @@ img:hover {
   width: 80%;
   height: 90%;
   align-items: center;
-  background-color: $text-color;
-  opacity: .4;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .transBoxText {
-  margin-top: 260px;
+  margin-top: 160px;
   padding: 0 0 10px 10px;
   text-align: left;
   color: $color-light-primary;
   text-transform: uppercase;
+  font-size: 30px;
+
+  & h3 {
+    font-size: 50px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
   
   .percent {
     border: 2px solid $color-light-primary;
     padding: 5px;
     margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 600;
+
   }
 }
