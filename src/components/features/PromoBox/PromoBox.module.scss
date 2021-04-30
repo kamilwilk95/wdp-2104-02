@@ -65,7 +65,24 @@
   max-height: 100%;
 }
 
+.fadeStart {
+  animation-name: fade-start;
+  animation-duration: $transition;
+}
 
+.fadeEnd {
+  animation-name: fade-end;
+  animation-duration: $transition;
+}
 
+@keyframes fade-start {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fade-end {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 

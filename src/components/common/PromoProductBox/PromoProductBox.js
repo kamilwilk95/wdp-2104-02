@@ -23,6 +23,7 @@ const PromoProductBox = ({
   myRating,
   addRating,
   id,
+  className,
 }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
@@ -47,7 +48,6 @@ const PromoProductBox = ({
         </div>
       </div>
     </div>
-
     <div className={styles.content}>
       <h5>{name}</h5>
       <div className={styles.stars}>
@@ -105,6 +105,7 @@ PromoProductBox.propTypes = {
   compare: PropTypes.bool,
   myRating: PropTypes.any,
   addRating: PropTypes.func,
+  className: PropTypes.string,
 };
 
 export default PromoProductBox;
