@@ -20,6 +20,7 @@ class PromoBox extends React.Component {
     activePromoImage: 0,
     imageClassName: styles.fadeEnd,
     productClassName: styles.fadeEnd,
+    animationBlock: false,
   };
 
   /* Promo Product */
@@ -28,11 +29,19 @@ class PromoBox extends React.Component {
     setInterval(() => {
       const promoProductsCount = this.props.saleProducts.length;
       let product = this.state.activeProduct;
+      let animationBlock = this.state.animationBlock;
+      console.log(this.state.animationBlock);
 
-      if (product === promoProductsCount - 1) {
-        this.handleProductChange(0);
+      if (animationBlock == true) {
+        setTimeout(() => {
+          this.setState({ animationBlock: false });
+        }, 10000);
       } else {
-        this.handleProductChange(product + 1);
+        if (product === promoProductsCount - 1) {
+          this.handleProductChange(0);
+        } else {
+          this.handleProductChange(product + 1);
+        }
       }
     }, 3000);
   }
@@ -43,6 +52,11 @@ class PromoBox extends React.Component {
       this.setState({ activeProduct: newProduct });
       this.setState({ productClassName: `${styles.fadeEnd}` });
     }, 600);
+  }
+
+  handleOnClickChange(newProduct) {
+    this.setState({ animationBlock: true });
+    this.handleProductChange(newProduct);
   }
 
   /* Promo Product End*/
@@ -89,7 +103,7 @@ class PromoBox extends React.Component {
       dots.push(
         <li>
           <a
-            onClick={() => this.handleProductChange(i)}
+            onClick={() => this.handleOnClickChange(i)}
             className={i === activeProduct && styles.active}
           >
             product {i}
