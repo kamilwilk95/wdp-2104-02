@@ -8,6 +8,12 @@ export const getNew = ({ products }) =>
 export const getProductsToCompare = ({ products }) =>
   products.filter(item => item.compare === true);
 
+export const saleProducts = ({ products }) =>
+  products.filter(item => item.promo === 'sale');
+
+export const promoProducts = ({ products }) =>
+  products.filter(item => item.promo === 'promo');
+
 /* function*/
 
 const addProductToFavourite = (state, action) => {

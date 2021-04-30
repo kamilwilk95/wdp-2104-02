@@ -33,6 +33,8 @@ class NewFurniture extends React.Component {
     setTimeout(() => {
       this.setState({ activeCategory: newCategory });
       this.setState({ className: `${styles.fadeEnd}` });
+      this.setState({ activePage: 0 }); //Zauważyłem że przy zmianie kategorii nie zeuje się strona a powinna więc poprawiłem to tutaj
+
     }, 600);
   }
 

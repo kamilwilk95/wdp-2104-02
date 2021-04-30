@@ -34,7 +34,9 @@ export class FurnitureGallery extends Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
+
             <div className='col-lg-6 col-12'>
+
               <Gallery
                 activeCategorySales={activeCategorySales}
                 products={featuredProducts}
@@ -46,6 +48,7 @@ export class FurnitureGallery extends Component {
               />
             </div>
             <div className={'col-6 d-none d-lg-block ' + styles.announceContainer}>
+
               <div className={styles.announce}>
                 <h2 className={styles.announceTitle}>
                   FROM<span className={styles.announceSpan}> $50.80</span>
