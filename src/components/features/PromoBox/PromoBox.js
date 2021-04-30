@@ -31,7 +31,7 @@ class PromoBox extends React.Component {
       let product = this.state.activeProduct;
       let animationBlock = this.state.animationBlock;
 
-      if (animationBlock == true) {
+      if (animationBlock === true) {
         setTimeout(() => {
           this.setState({ animationBlock: false });
         }, 10000);

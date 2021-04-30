@@ -3,10 +3,10 @@
 .root {
   background-color: $color-light-primary;
   border: 1px solid $color-light-secondary;
-  height: 472px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-end !important;
+  height: 472px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   .photo {
     .image {
