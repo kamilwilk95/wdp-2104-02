@@ -18,7 +18,6 @@ const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
 };
 
 const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) => {
-  console.log(thumbnailLength, activeGalleryLine);
   if (thumbnailLength / photoNumber <= activeGalleryLine + 1) {
     return true;
   } else {
