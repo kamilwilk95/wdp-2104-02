@@ -12,7 +12,14 @@ class Deals extends React.Component {
           <div className={`row ${styles.dealsBox}`}>
             <div className={`col-6 ${styles.dealsBig}`}>
               {dealsBig.map(item => (
-                <div key={item.id} className={styles.dealsBigBox}>
+                <div key={item.id} className={`col ${styles.dealsBigBox}`}>
+                  <div className={`col ${styles.transBox}`}>
+                    <div className={styles.transBoxText}>
+                      <span>guest room</span>
+                      <h3>sofa</h3>
+                      <span className={styles.percent}>-20%</span>
+                    </div>
+                  </div>
                   <img
                     className={styles.photoBig}
                     alt='product_deals_big'

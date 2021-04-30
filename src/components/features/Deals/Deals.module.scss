@@ -5,12 +5,20 @@
 }
 
 .dealsBigBox {
-  text-align: right;
-  height: 300px;
+  height: 420px;
+  position: relative;
 }
 
 .dealsSmallBox {
-  height: 150px;
+  height: 210px;
+}
+
+.dealsBig {
+  flex-basis: 100%;
+}
+
+.dealsSmall {
+  flex-basis: 50%;
 }
 
 .photoBig {
@@ -20,10 +28,6 @@
   padding: 5px;
 }
 
-.dealsSmall {
-  flex-basis: 50%;
-}
-  
 .photoSmall {
   width: 100%;
   height: 100%;      
@@ -32,4 +36,31 @@
 
 img:hover {
   opacity: 0.6;
+}
+
+.transBox {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 80%;
+  height: 90%;
+  align-items: center;
+  background-color: $text-color;
+  opacity: .4;
+}
+
+.transBoxText {
+  margin-top: 260px;
+  padding: 0 0 10px 10px;
+  text-align: left;
+  color: $color-light-primary;
+  text-transform: uppercase;
+  
+  .percent {
+    border: 2px solid $color-light-primary;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
 }
