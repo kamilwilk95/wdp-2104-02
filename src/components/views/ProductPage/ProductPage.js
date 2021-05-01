@@ -3,25 +3,12 @@ import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
 
 class ProductPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: null,
-    };
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        id: this.props.match.url.replace('/product/', ''),
-      });
-    }, 2500);
-  }
-
   render() {
+    const { productId } = this.props.match.params;
     return (
       <div className={`container ${styles.root}`}>
         <h3>
-          This is ProductPage of: <span>{this.state.id}</span>
+          This is ProductPage of: <span>{productId}</span>
         </h3>
         <div className={`row`}>
           <div className={`col-md-6`}>
@@ -38,7 +25,9 @@ class ProductPage extends React.Component {
 
 ProductPage.propTypes = {
   match: {
-    url: PropTypes.string,
+    params: {
+      productId: PropTypes.string,
+    },
   },
 };
 
