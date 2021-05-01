@@ -1,0 +1,88 @@
+@import "../../../styles/settings.scss";
+
+.promoTitle{
+  h3 {
+    margin: 0;
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 54px;
+  background: $text-color;
+  color: $color-light-tertiary;
+}
+.dots {
+  ul {
+        margin: 0;
+        padding: 0 0 0 1rem;
+        list-style: none;
+        background-color: inherit;
+        align-self: center;
+        display: flex;
+        li {
+          display: inline-block;
+          margin-left: 0.5rem;
+
+          a {
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-radius: 6px;
+            background-color: $color-light-secondary;
+            font-size: 0;
+
+            &.active,
+            &:hover {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+  display: flex;
+  height: 100%;
+}
+
+.promoWrapper {
+  display: flex;
+  height: 526px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.productBox {
+  flex-grow: 1;
+  padding-right: $base-padding;
+  max-height: 100%;
+  width: 100%;
+  max-width: 33%;
+}
+
+.galleryBox {
+  flex-grow: 3;
+  max-height: 100%;
+}
+
+.fadeStart {
+  animation-name: fade-start;
+  animation-duration: $transition;
+}
+
+.fadeEnd {
+  animation-name: fade-end;
+  animation-duration: $transition;
+}
+
+@keyframes fade-start {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fade-end {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+

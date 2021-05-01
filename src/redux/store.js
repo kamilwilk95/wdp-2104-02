@@ -5,11 +5,18 @@ import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 
+import brandsRedux from './brandsRedux';
+import configReducer from './configRedux';
+import commentsReducer from './comentsRedux';
+
 // define reducers
 const reducers = {
+  comments: commentsReducer,
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  brands: brandsRedux,
+  config: configReducer,
 };
 
 // add blank reducers for initial state properties without reducers

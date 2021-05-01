@@ -15,10 +15,12 @@
       a {
         color: $color-light-primary;
         font-size: 13px;
+        @extend %text-hover-before;
 
         &:hover {
-          color: $primary;
+          // color: $primary;
           text-decoration: none;
+          @extend %text-hover-after;
         }
       }
     }

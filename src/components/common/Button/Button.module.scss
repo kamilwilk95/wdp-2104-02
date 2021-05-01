@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 .main {
   background-color: $footer-claim-bg;
   color: $color-light-primary;
@@ -10,11 +7,13 @@
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  @extend %buttons-hover-before;
 
   &:not(.noHover):hover {
     color: $color-light-primary !important;
     background-color: $primary;
     text-decoration: none;
+    @extend %buttons-hover-after;
   }
 }
 
@@ -29,13 +28,37 @@
 .outline {
   display: inline-block;
   padding: 5px 10px;
+  border: 1px solid $footer-claim-bg;
   border: 1px solid $text-color;
   color: $text-color;
   font-size: 13px;
   line-height: 22px;
+  @extend %buttons-hover-before;
 
   &:not(.noHover):hover {
+    background-color: $footer-claim-bg;
+    @extend %buttons-hover-after;
     background-color: $text-color;
     color: $color-light-primary;
   }
+}
+
+.outlineFavourites {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $text-color;
+  font-size: 13px;
+  line-height: 22px;
+  background-color: $text-color;
+  color: $color-light-primary;
+}
+
+.outlineCompare {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid $text-color;
+  font-size: 13px;
+  line-height: 22px;
+  background-color: $text-color;
+  color: $color-light-primary;
 }
