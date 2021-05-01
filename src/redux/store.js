@@ -5,10 +5,7 @@ import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import configReducer from './configRedux';
-import commentsReducer from './comentsRedux';
-
 import brandsRedux from './brandsRedux';
-import configReducer from './configRedux';
 import commentsReducer from './comentsRedux';
 
 // define reducers

@@ -9,8 +9,6 @@ import {
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 // eslint-disable-next-line no-unused-vars
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarRating from '../StarRating/StarRating';
@@ -86,7 +84,6 @@ const ProductBox = ({
           >
             <FontAwesomeIcon
               icon={faHeart}
-
               className={isFavourite ? styles.isFavourite : ''}
             >
               Favourite

@@ -1,5 +1,4 @@
 const initialState = {
-
   brands: [
     { id: 1, mark: 'https://i.postimg.cc/rmD2V58b/brand-1.png' },
     { id: 2, mark: 'https://i.postimg.cc/hjzNWgsR/brand-2.png' },
@@ -1031,7 +1030,7 @@ const initialState = {
       category: 'table',
       price: 30,
       stars: 2,
-     promo: 'sale',
+      promo: 'sale',
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/lack-stolik-kawowy-bialy__0702217_pe724349_s5.jpg?f=xxs',
@@ -1053,7 +1052,7 @@ const initialState = {
       category: 'table',
       price: 30,
       stars: 2,
-      promo: 'sale'
+      promo: 'sale',
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/lagkapten-olov-biurko-dab-bejcowany-na-bialo-bialy__0977612_pe813682_s5.jpg?f=xxs',
@@ -1221,7 +1220,7 @@ const initialState = {
       name: 'Tommaryd 5',
       category: 'dining',
       price: 30,
-      stars: 2
+      stars: 2,
       promo: 'sale',
       newFurniture: true,
       photoBackground:
