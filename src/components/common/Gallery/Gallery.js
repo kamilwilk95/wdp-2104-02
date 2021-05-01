@@ -64,9 +64,11 @@ const Gallery = ({
   leftArrow,
   changeProductPhoto,
   activeProductPhoto,
+  changeProduct,
+  activeProduct,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
-  const activePhoto = photos[0];
+  const activePhoto = activeProduct.id ? activeProduct : photos[0];
 
   const thumbnail = photos
     .slice(activeGalleryLine * photoNumber, (activeGalleryLine + 1) * photoNumber)
@@ -77,7 +79,7 @@ const Gallery = ({
           className={
             styles.photo + ' ' + (activePhoto.id !== item.id && styles.activePhoto)
           }
-          onClick={() => changeProductPhoto(item.photoBackground)}
+          onClick={() => changeProductPhoto(item.photoBackground) & changeProduct(item)}
           style={{
             backgroundImage: `url(${item.photoBackground})`,
           }}
@@ -100,7 +102,11 @@ const Gallery = ({
                 className={
                   styles.navLink + ' ' + (item === activeCategorySales && styles.active)
                 }
-                onClick={() => handleChangeCategory(item)}
+                onClick={() =>
+                  handleChangeCategory(item) &
+                  changeProduct('') &
+                  changeProductPhoto('')
+                }
               >
                 {item}
               </a>
@@ -221,6 +227,8 @@ Gallery.propTypes = {
   leftArrow: PropTypes.string,
   changeProductPhoto: PropTypes.func,
   activeProductPhoto: PropTypes.string,
+  changeProduct: PropTypes.func,
+  activeProduct: PropTypes.any,
 };
 
 export default Gallery;
