@@ -8,13 +8,27 @@
     font-size: 24px;
   }
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   height: 54px;
   background: $text-color;
   color: $color-light-tertiary;
+  @media (max-width: 768px) {
+    height: 108px;
+    flex-direction: column;
+    .heading{
+      height: 54px;
+      min-height: 54px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
 }
 .dots {
+
   ul {
         margin: 0;
         padding: 0 0 0 1rem;
@@ -90,5 +104,18 @@
     display: none;
   }
 
+}
+
+@media (max-width: 768px) {
+  .dots{
+    height: 54px;
+    min-height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+      padding: 0;
+    }
+  }
 }
 

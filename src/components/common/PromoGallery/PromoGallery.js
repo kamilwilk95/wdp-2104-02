@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './PromoGallery.module.scss';
 import Button from '../../common/Button/Button';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
