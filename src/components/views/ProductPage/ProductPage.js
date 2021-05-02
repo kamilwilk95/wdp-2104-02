@@ -11,10 +11,10 @@ class ProductPage extends React.Component {
           This is ProductPage of: <span>{productId}</span>
         </h3>
         <div className={`row`}>
-          <div className={`col-md-6`}>
+          <div className={`col-md-5 ${styles.productGallery}`}>
             <h5>Product Gallery Here</h5>
           </div>
-          <div className={`col-md-6`}>
+          <div className={`col-md-7 ${styles.productDescription}`}>
             <h5>Product Description Here</h5>
           </div>
         </div>
