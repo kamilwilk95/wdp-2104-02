@@ -78,10 +78,16 @@
 
   .buttons {
     visibility: hidden;
+    a {
+      text-decoration: none;
+      color: inherit;
+      text-transform: uppercase;
+    }
   }
 
   &:hover .buttons {
     visibility:visible;
+
   }
 
   &:hover .buttonPrice  {

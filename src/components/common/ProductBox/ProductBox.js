@@ -56,9 +56,12 @@ const ProductBox = ({
     >
       {promo && <div className={styles.sale}>{promo}</div>}
       <div className={styles.buttons}>
-        <Link to={`/product/${id}`} id={id}>
-          <Button variant='small'>Quick View</Button>
-        </Link>
+        <Button variant='small'>
+          <Link to={`/product/${id}`} id={id}>
+            Quick View
+          </Link>
+        </Button>
+
         <Button variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
