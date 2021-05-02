@@ -15,14 +15,18 @@
   background: $text-color;
   color: $color-light-tertiary;
   @media (max-width: 768px) {
-    height: 108px;
+
     flex-direction: column;
     .heading{
-      height: 54px;
-      min-height: 54px;
+
+      height: 27px;
+      min-height: 27px;
       display: flex;
       justify-content: center;
       align-items: center;
+      h3{
+        font-size: 20px;
+      }
     }
   }
 
@@ -60,6 +64,7 @@
 }
 
 .promoWrapper {
+  margin-top: $base-padding;
   display: flex;
   height: 526px;
   flex-direction: row;
@@ -108,8 +113,8 @@
 
 @media (max-width: 768px) {
   .dots{
-    height: 54px;
-    min-height: 54px;
+    height: 27px;
+    min-height: 27px;
     display: flex;
     justify-content: center;
     align-items: center;
