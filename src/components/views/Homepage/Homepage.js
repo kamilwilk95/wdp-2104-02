@@ -8,13 +8,14 @@ import Brand from '../../features/Brand/BrandBox';
 import PromoBox from '../../features/PromoBox/PromoBoxContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 
-
 import FurnitureGallery from './../../features/FurnitureGallery/FurnitureGalleryContainer';
+import Deals from '../../features/Deals/DealsBox';
 
 const Homepage = () => (
   <div className={styles.root}>
     <PromoBox />
     <FeatureBoxes />
+    <Deals />
     <NewFurniture />
     <Brand />
     <Feedback />

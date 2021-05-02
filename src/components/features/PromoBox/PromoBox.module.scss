@@ -8,13 +8,31 @@
     font-size: 24px;
   }
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   height: 54px;
   background: $text-color;
   color: $color-light-tertiary;
+  @media (max-width: 768px) {
+
+    flex-direction: column;
+    .heading{
+
+      height: 27px;
+      min-height: 27px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3{
+        font-size: 20px;
+      }
+    }
+  }
+
 }
 .dots {
+
   ul {
         margin: 0;
         padding: 0 0 0 1rem;
@@ -46,6 +64,7 @@
 }
 
 .promoWrapper {
+  margin-top: $base-padding;
   display: flex;
   height: 526px;
   flex-direction: row;
@@ -65,7 +84,43 @@
   max-height: 100%;
 }
 
+.fadeStart {
+  animation-name: fade-start;
+  animation-duration: $transition;
+}
 
+.fadeEnd {
+  animation-name: fade-end;
+  animation-duration: $transition;
+}
 
+@keyframes fade-start {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
 
+@keyframes fade-end {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@media (max-width: 767px){
+  .productBox {
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .dots{
+    height: 27px;
+    min-height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+      padding: 0;
+    }
+  }
+}
 
