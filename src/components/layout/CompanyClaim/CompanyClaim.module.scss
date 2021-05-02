@@ -27,7 +27,9 @@
 
   .cart {
     .cartBox {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
       position: relative;
       color: $color-light-primary;
 
@@ -51,20 +53,22 @@
       }
 
       .cartCounter {
-        width: 28px;
+        //width: 28px;
         height: 27px;
         padding-left: 10px;
         border-radius: 14px;
         background-color: $header-bg;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        //justify-content: flex-start;
         font-size: 14px;
         color: $cardcounter-color;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(50%, -50%);
+        //position: absolute;
+        //top: 50%;
+        //right: 0;
+        //transform: translate(50%, -50%);
+        /*add*/
+        margin-left: -22px;
       }
     }
   }
