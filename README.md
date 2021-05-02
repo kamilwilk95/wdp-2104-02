@@ -55,4 +55,3 @@ Komponent `StarRating` można wykorzystać do wyświetlania oceny produktu w for
 #### Button
 Komponent `Button` może być wykorzystywany do generowania kilku wariantów przycisków, które można stworzyć w pliku styli tego komponentu.
 
-## Troubleshooting
