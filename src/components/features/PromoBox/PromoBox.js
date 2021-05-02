@@ -71,7 +71,9 @@ class PromoBox extends React.Component {
   }
 
   changeImagePrev(event) {
-    //event.preventDefault();
+    if (event && event.type === 'click') {
+      event.preventDefault();
+    }
     let currentImage = this.state.activePromoImage;
 
     if (currentImage !== 0) {
@@ -80,7 +82,9 @@ class PromoBox extends React.Component {
   }
 
   changeImageNext(event) {
-    //event.preventDefault();
+    if (event && event.type === 'click') {
+      event.preventDefault();
+    }
     let currentImage = this.state.activePromoImage;
     const { promoProducts } = this.props;
 
