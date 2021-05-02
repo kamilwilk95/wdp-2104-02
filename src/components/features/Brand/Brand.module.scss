@@ -1,7 +1,8 @@
 @import "../../../styles/settings.scss";
-  
+
 .marksRow{
   margin-bottom: 20px;
+  position: relative;
 
   .mark {
     flex-basis: 15%;
@@ -15,8 +16,6 @@
   display: flex;
   border-top: 1px solid $color-light-secondary;
   border-bottom: 1px solid $color-light-secondary;
-  margin-right: auto;
-  margin-left: auto;
   padding: 10px 0;
 }
 
@@ -26,11 +25,12 @@
   height: 60px;
 }
 
-.dealsButtons {
+.brandsButtons {
   width: 50px;
   height: 60px;
   display: flex;
   background: $text-color;
+  margin-top: 5px;
 
   .button {
     &:hover {

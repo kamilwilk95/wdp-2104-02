@@ -12,20 +12,27 @@ class Brand extends React.Component {
   leftAction = this.changePagePrev.bind(this);
   rightAction = this.changePageNext.bind(this);
   state = {
-    activeBrand: 0,
+    activePage: 0,
   };
 
-  handlePageChange(brand) {
-    this.setState({ activeBrand: brand });
+  rwdCardsInRow = {
+    desktop: 6,
+    tablet: 6,
+    mobile: 4,
+  };
+
+  handlePageChange(page) {
+    this.setState({ activePage: page });
   }
 
   changePagePrev() {
-    let currentBrand = this.state.activeBrand;
-    const { brands } = this.props;
-    const brandsCount = brands.length;
+    let currentPage = this.state.activePage;
+    const { brands, rwdMode } = this.props;
 
-    if (currentBrand < brandsCount - 1) {
-      this.handlePageChange(currentBrand + 1);
+    const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode.rwdMode]);
+
+    if (currentPage < pagesCount - 1) {
+      this.handlePageChange(currentPage + 1);
     }
   }
 
@@ -38,17 +45,17 @@ class Brand extends React.Component {
   }
 
   render() {
-    const { activeBrand } = this.state;
-    const { brands } = this.props;
-    const brandsCount = Math.ceil(brands.length);
+    const { activePage } = this.state;
+    const { brands, rwdMode } = this.props;
+    const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode]);
 
     const dots = [];
-    for (let i = 0; i < brandsCount; i++) {
+    for (let i = 0; i < pagesCount; i++) {
       dots.push(
         <li>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activeBrand && styles.active}
+            className={i === activePage && styles.active}
           >
             page {i}
           </a>
@@ -73,21 +80,26 @@ class Brand extends React.Component {
 
             <div className={`row ${styles.marksRow}`}>
               <div className={`col ${styles.brandBox}`}>
-                <div className={styles.dealsButtons}>
+                <div className={styles.brandsButtons}>
                   <Button className={styles.button}>
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                   </Button>
                 </div>
-                {brands.map(item => (
-                  <div key={item.id} className={`col ${styles.mark}`}>
-                    <img
-                      className={styles.photo}
-                      alt='brand_mark'
-                      src={item.mark}
-                    ></img>
-                  </div>
-                ))}
-                <div className={styles.dealsButtons}>
+                {brands
+                  .slice(
+                    activePage * this.rwdCardsInRow[rwdMode],
+                    (activePage + 1) * this.rwdCardsInRow[rwdMode]
+                  )
+                  .map(item => (
+                    <div key={item.id} className={`col ${styles.mark}`}>
+                      <img
+                        className={styles.photo}
+                        alt='brand_mark'
+                        src={item.mark}
+                      ></img>
+                    </div>
+                  ))}
+                <div className={styles.brandsButtons}>
                   <Button className={styles.button}>
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
                   </Button>
@@ -103,6 +115,7 @@ class Brand extends React.Component {
 Brand.propTypes = {
   brands: PropTypes.array,
   id: PropTypes.string,
+  rwdMode: PropTypes.string,
 };
 
 Brand.defaultProps = {
