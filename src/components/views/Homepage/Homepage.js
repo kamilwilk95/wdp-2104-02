@@ -10,6 +10,7 @@ import Feedback from '../../layout/Feedback/FeedbackContainer';
 
 import FurnitureGallery from './../../features/FurnitureGallery/FurnitureGalleryContainer';
 import Deals from '../../features/Deals/DealsBox';
+// import BrandGallery from '../../features/Brand/BrandGallery';
 
 const Homepage = () => (
   <div className={styles.root}>
