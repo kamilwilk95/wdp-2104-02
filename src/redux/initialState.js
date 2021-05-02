@@ -66,6 +66,8 @@ const initialState = {
       myRating: 3,
       isFavourite: true,
       topSeller: true,
+      deals: true,
+      dealsSmallDown: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -175,6 +177,8 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      deals: true,
+      dealsSmallUp: true,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -776,6 +780,8 @@ const initialState = {
       newFurniture: true,
       photoBackground:
         'https://www.ikea.com/pl/pl/images/products/holmsund-naroznik-z-funkcja-spania-nordvalla-srednioszary__0829250_pe600302_s5.jpg?f=xxs',
+      deals: true,
+      dealsBig: true,
     },
     {
       id: 'Evertsberg-14',

@@ -14,6 +14,15 @@ export const saleProducts = ({ products }) =>
 export const promoProducts = ({ products }) =>
   products.filter(item => item.promo === 'promo');
 
+export const getDealsBig = ({ products }) =>
+  products.filter(item => item.dealsBig === true);
+
+export const getDealsSmallUp = ({ products }) =>
+  products.filter(item => item.dealsSmallUp === true);
+
+export const getDealsSmallDown = ({ products }) =>
+  products.filter(item => item.dealsSmallDown === true);
+
 /* function*/
 
 const addProductToFavourite = (state, action) => {
