@@ -9,7 +9,7 @@ import PromoBox from '../../features/PromoBox/PromoBoxContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 
 import FurnitureGallery from './../../features/FurnitureGallery/FurnitureGalleryContainer';
-import SocialMedia from '../../common/socialMedia/socialMedia';
+import SocialMedia from '../../common/SocialMedia/SocialMedia';
 
 const Homepage = () => (
   <div className={styles.root}>
