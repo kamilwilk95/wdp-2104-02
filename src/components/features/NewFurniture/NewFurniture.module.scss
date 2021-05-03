@@ -146,7 +146,72 @@
       }
     }
   }
+  /*Mobile*/
+  @media (max-width: 767px){
+
+    .menuPagesBar{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .heading{
+        min-width: 100%;
+        padding-bottom: 0.5em;
+        text-align: right;
+        border-bottom: none;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          right: 0;
+          width: 100%;
+          border-bottom: 4px solid $primary;
+        }
+      }
+      .menu{
+        padding-top: 1em;
+        border-bottom: 4px solid $global-border-color;
+      }
+      .dots{
+        position: inherit;
+        margin-bottom: 1em;
+      }
+    }
+    .productsRow{
+      flex-direction: column;
+      justify-content: center;
+      .product {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
+
+.fadeStart {
+  animation-name: fade-start;
+  animation-duration: $transition;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fadeEnd {
+  animation-name: fade-end;
+  animation-duration: $transition;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@keyframes fade-start {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fade-end {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 
 .fadeStart {
   animation-name: fade-start;

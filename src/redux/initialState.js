@@ -1,18 +1,4 @@
 const initialState = {
-  brands: [
-    { id: 1, mark: 'https://i.postimg.cc/rmD2V58b/brand-1.png' },
-    { id: 2, mark: 'https://i.postimg.cc/hjzNWgsR/brand-2.png' },
-    { id: 3, mark: 'https://i.postimg.cc/MHJPCBX1/brand-3.png' },
-    { id: 4, mark: 'https://i.postimg.cc/C54N963V/brand-4.png' },
-    { id: 5, mark: 'https://i.postimg.cc/xTxGHHYg/brand-5.png' },
-    { id: 6, mark: 'https://i.postimg.cc/DZn4Ryn8/brand-6.png' },
-    { id: 7, mark: 'https://i.postimg.cc/02FMPC9g/brand-7.png' },
-    /*{ id: 8, mark: 'https://i.postimg.cc/vBYD3qtn/brand-8.png' },
-    { id: 9, mark: 'https://i.postimg.cc/pdZLhQML/brand-9.png' },
-    { id: 10, mark: 'https://i.postimg.cc/85Xkw158/brand-10.png' },
-    { id: 11, mark: 'https://i.postimg.cc/L8F9xQHs/brand-11.png' },
-    { id: 12, mark: 'https://i.postimg.cc/h4JQwwq8/brand-12.png' }, */
-  ],
   comments: [
     {
       id: 1,
@@ -59,14 +45,13 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      isFavorite: true,
       compare: false,
       photoBackground:
         'https://s1.meble.pl/gfx/_zdjecia_wspolne/sklep_oferta/2/743/2743454/bzielona_kanapa_w_skandynawskim_stylu_pik___index__4176921222.jpg',
       myRating: 3,
       isFavourite: true,
       topSeller: true,
-      deals: true,
-      dealsSmallDown: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -76,6 +61,7 @@ const initialState = {
       oldPrice: 45,
       stars: 2,
       newFurniture: true,
+      isFavorite: true,
       compare: false,
       photoBackground:
         'https://lectus24.pl/96216-large_default/biurko-z-szufladami-raflo-biale-mat.jpg',
@@ -91,7 +77,7 @@ const initialState = {
       oldPrice: 45,
       stars: 2,
       newFurniture: true,
-      onSale: true,
+      isFavorite: false,
       compare: false,
       photoBackground:
         'https://www.meblezagrosze.pl/upload/l650/szafka-rtv-sewt142-m115-colonial-oak-black-colonial-oak-sewill-1.jpg',

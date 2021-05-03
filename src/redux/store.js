@@ -14,7 +14,6 @@ const reducers = {
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
-  brands: brandsRedux,
   config: configReducer,
 };
 

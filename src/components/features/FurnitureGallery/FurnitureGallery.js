@@ -34,7 +34,7 @@ export class FurnitureGallery extends Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-md-6 col-12'>
+            <div className='col-lg-6 col-12'>
               <Gallery
                 activeCategorySales={activeCategorySales}
                 products={featuredProducts}
