@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     position: relative;
-
+    
     .icon:first-child {
       color: $primary;
       position: absolute;
@@ -81,28 +81,32 @@
         }
       }
 
-    select {
-      option {
-        background: none;
-      }
-      &:hover {
+      select {
         option {
-          color: $text-color;
+          background: none;
         }
-        text-decoration: underline;
-        color: $primary;
+        &:hover {
+          option {
+            color: $text-color;
+          }
+          text-decoration: underline;
+          color: $primary;
+        }
+        -webkit-appearance: none;
+        border: 0;
+        font-size: 14px;
+        outline: none;
+        background-color: transparent;
+        padding: 5px 30px 5px 35px;
+        position: relative;
+        z-index: 1;
       }
-      -webkit-appearance: none;
-      border: 0;
-      font-size: 14px;
-      outline: none;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
+
+    }
+    @media(max-width:767px){
+      display: none;
     }
   }
-}
 
   .searchField {
     display: flex;

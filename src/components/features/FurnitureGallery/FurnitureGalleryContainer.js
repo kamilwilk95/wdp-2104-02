@@ -4,6 +4,8 @@ import { FurnitureGallery } from './FurnitureGallery';
 
 import { getNew } from '../../../redux/productsRedux.js';
 
+import { getRwdMode } from '../../../redux/configRedux.js';
+
 import {
   addFavourite,
   addRating,
@@ -13,6 +15,7 @@ import {
 
 const mapStateToProps = state => ({
   products: getNew(state),
+  rwdMode: getRwdMode(state),
 });
 
 const mapDispatchToProps = dispatch => ({
