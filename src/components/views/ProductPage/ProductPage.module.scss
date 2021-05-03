@@ -1,5 +1,15 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  padding: $base-padding 0;
+  margin: $base-padding auto;
+  padding: $base-padding;
+  height: 653px;
+  h3 span{
+    color: $orange;
+  }
+
+  .tabComponent {
+    padding-left: 0;
+    border: 1px solid $global-border-color;
+  }
 }
