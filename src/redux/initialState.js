@@ -1373,6 +1373,10 @@ const initialState = {
   config: {
     rwdMode: 'dektop',
   },
+  widget: {
+    min: 1,
+    max: 100,
+  },
 };
 
 export default initialState;

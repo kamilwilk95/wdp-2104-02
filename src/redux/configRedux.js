@@ -1,6 +1,5 @@
 /* selectors */
 export const getRwdMode = ({ config }) => config;
-
 /* action name creator */
 const reducerName = 'config';
 const createActionName = name => `app/${reducerName}/${name}`;

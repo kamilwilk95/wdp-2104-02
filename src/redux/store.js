@@ -8,6 +8,7 @@ import productsReducer from './productsRedux';
 import brandsRedux from './brandsRedux';
 import configReducer from './configRedux';
 import commentsReducer from './comentsRedux';
+import widgetReducer from './widgetRedux';
 
 // define reducers
 const reducers = {
@@ -17,6 +18,7 @@ const reducers = {
   products: productsReducer,
   brands: brandsRedux,
   config: configReducer,
+  widget: widgetReducer,
 };
 
 // add blank reducers for initial state properties without reducers

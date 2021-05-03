@@ -10,6 +10,7 @@ import Feedback from '../../layout/Feedback/FeedbackContainer';
 
 import FurnitureGallery from './../../features/FurnitureGallery/FurnitureGalleryContainer';
 import Deals from '../../features/Deals/DealsBox';
+import AmountWidget from '../../common/AmountWidget/AmountWidgetContainer';
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -20,6 +21,7 @@ const Homepage = () => (
     <Brand />
     <Feedback />
     <FurnitureGallery />
+    <AmountWidget />
   </div>
 );
 
