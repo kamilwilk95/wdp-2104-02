@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import PromoProductBox from '../../common/PromoProductBox/PromoProductBox';
 import PromoGallery from '../../common/PromoGallery/PromoGallery';
+import Swipeable from './../../common/Swipeable/Swipeable';
 import styles from './PromoBox.module.scss';
 
 class PromoBox extends React.Component {
@@ -70,7 +71,9 @@ class PromoBox extends React.Component {
   }
 
   changeImagePrev(event) {
-    event.preventDefault();
+    if (event && event.type === 'click') {
+      event.preventDefault();
+    }
     let currentImage = this.state.activePromoImage;
 
     if (currentImage !== 0) {
@@ -79,7 +82,9 @@ class PromoBox extends React.Component {
   }
 
   changeImageNext(event) {
-    event.preventDefault();
+    if (event && event.type === 'click') {
+      event.preventDefault();
+    }
     let currentImage = this.state.activePromoImage;
     const { promoProducts } = this.props;
 
@@ -132,12 +137,17 @@ class PromoBox extends React.Component {
             <div className={styles.galleryBox}>
               {promoProducts.slice(activePromoImage, activePromoImage + 1).map(item => (
                 <div key={item.id}>
-                  <PromoGallery
-                    {...item}
+                  <Swipeable
                     leftAction={this.leftAction}
                     rightAction={this.rightAction}
-                    className={this.state.imageClassName}
-                  />
+                  >
+                    <PromoGallery
+                      {...item}
+                      leftAction={this.leftAction}
+                      rightAction={this.rightAction}
+                      className={this.state.imageClassName}
+                    />
+                  </Swipeable>
                 </div>
               ))}
             </div>

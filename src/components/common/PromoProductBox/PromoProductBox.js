@@ -23,7 +23,6 @@ const PromoProductBox = ({
   myRating,
   addRating,
   id,
-  className,
 }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
