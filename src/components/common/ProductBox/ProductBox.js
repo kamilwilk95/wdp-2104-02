@@ -7,6 +7,7 @@ import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-ico
 import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarRating from '../StarRating/StarRating';
+import { Link } from 'react-router-dom';
 
 const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
   event.preventDefault();
@@ -55,7 +56,12 @@ const ProductBox = ({
     >
       {promo && <div className={styles.sale}>{promo}</div>}
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
+        <Button variant='small'>
+          <Link to={`/product/${id}`} id={id}>
+            Quick View
+          </Link>
+        </Button>
+
         <Button variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>

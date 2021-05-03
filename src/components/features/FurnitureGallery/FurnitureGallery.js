@@ -7,14 +7,77 @@ import Gallery from '../../common/Gallery/Gallery';
 import Button from '../../common/Button/Button';
 
 const TOP_SELLER = 'top seller';
+const FEATURED = 'featured';
+const SALE_OFF = 'sale off';
+const TOP_RATED = 'top rated';
+const RIGHT_ARROW = 'rightArrow';
+const LEFT_ARROW = 'leftArrow';
 
 export class FurnitureGallery extends Component {
   state = {
     activeCategorySales: TOP_SELLER,
+    activeGalleryLine: 0,
+    activeProductPhoto: '',
+    activeProduct: '',
+    className: styles.fadeEnd,
+    photoClassName: styles.fadeEnd,
+  };
+
+  rwdPhotosInRow = {
+    // osoba która będzie robić RWD może zmienić wartości
+    desktop: 6,
+    tablet: 6,
+    mobile: 6,
+  };
+
+  handleChangeCategory = name => {
+    this.setState({
+      className: `${styles.fadeStart}`,
+    });
+    setTimeout(() => {
+      this.setState({ className: `${styles.fadeEnd}`, activeCategorySales: name });
+    }, 300);
+  };
+
+  handleChangeGalleryLine = changingButtons => {
+    if (changingButtons === RIGHT_ARROW) {
+      this.setState(prevState => ({
+        activeGalleryLine: prevState.activeGalleryLine + 1,
+      }));
+    } else {
+      this.setState(prevState => ({
+        activeGalleryLine: prevState.activeGalleryLine - 1,
+      }));
+    }
+  };
+
+  handleChangeProductPhoto = photoAddress => {
+    this.setState({
+      photoClassName: `${styles.fadeStart}`,
+    });
+    setTimeout(() => {
+      this.setState({
+        activeProductPhoto: photoAddress,
+        photoClassName: `${styles.fadeEnd}`,
+      });
+    }, 300);
+  };
+
+  handleChangeProduct = clickedProduct => {
+    this.setState({
+      activeProduct: clickedProduct,
+    });
   };
 
   render() {
-    const { products, addFavourite, addRating, addCompare, removeCompare } = this.props;
+    const {
+      products,
+      addFavourite,
+      addRating,
+      addCompare,
+      removeCompare,
+      rwdMode,
+    } = this.props;
 
     const { activeCategorySales } = this.state;
 
@@ -25,10 +88,21 @@ export class FurnitureGallery extends Component {
         case TOP_SELLER: {
           return product.topSeller;
         }
+        case FEATURED: {
+          return product.featured;
+        }
+        case SALE_OFF: {
+          return product.saleOff;
+        }
+        case TOP_RATED: {
+          return product.topRated;
+        }
         default:
           return null;
       }
     });
+
+    let photoNumber = this.rwdPhotosInRow[rwdMode];
 
     return (
       <div className={styles.root}>
@@ -43,6 +117,18 @@ export class FurnitureGallery extends Component {
                 addCompare={addCompare}
                 removeCompare={removeCompare}
                 canAddCompare={canAddCompare < 4 ? true : false}
+                handleChangeCategory={this.handleChangeCategory}
+                handleChangeGalleryLine={this.handleChangeGalleryLine}
+                rightArrow={RIGHT_ARROW}
+                leftArrow={LEFT_ARROW}
+                activeGalleryLine={this.state.activeGalleryLine}
+                changeProductPhoto={this.handleChangeProductPhoto}
+                activeProductPhoto={this.state.activeProductPhoto}
+                changeProduct={this.handleChangeProduct}
+                activeProduct={this.state.activeProduct}
+                activeClassName={this.state.className}
+                photoClassName={this.state.photoClassName}
+                photoNumber={photoNumber}
               />
             </div>
             <div className='col-6'>
@@ -77,6 +163,7 @@ FurnitureGallery.propTypes = {
   addRating: PropTypes.func,
   addCompare: PropTypes.func,
   removeCompare: PropTypes.func,
+  rwdMode: PropTypes.any,
 };
 
 export default FurnitureGallery;
