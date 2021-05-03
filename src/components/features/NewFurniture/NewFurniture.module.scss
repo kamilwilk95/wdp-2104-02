@@ -105,6 +105,9 @@
         max-width: 33.33%;
       }
     }
+    .dots {
+      position: static;
+    }
   }
   /*Mobile*/
   @media (max-width: 767px){
