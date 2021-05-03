@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
-import Brand from '../../features/Brand/Brand';
+import Brand from '../../features/Brand/BrandContainer';
 import PromoBox from '../../features/PromoBox/PromoBoxContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 
