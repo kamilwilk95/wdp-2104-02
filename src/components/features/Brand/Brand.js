@@ -8,9 +8,15 @@ import styles from './Brand.module.scss';
 import Button from '../../common/Button/Button';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
+const brandNumber = 6;
+
+const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) =>
+  thumbnailLength / brandNumber <= activeGalleryLine + 1 ? true : false;
+
 class Brand extends React.Component {
   leftAction = this.changePagePrev.bind(this);
   rightAction = this.changePageNext.bind(this);
+
   state = {
     activePage: 0,
   };
@@ -41,15 +47,21 @@ class Brand extends React.Component {
   }
 
   changePageNext() {
-    let currentBrand = this.state.activePage;
-    if (currentBrand !== 0) {
-      this.handlePageChange(currentBrand - 1);
+    let currentPage = this.state.activePage;
+    if (currentPage !== 0) {
+      this.handlePageChange(currentPage - 1);
     }
   }
 
   render() {
     const { activePage } = this.state;
-    const { brands, rwdMode } = this.props;
+    const {
+      brands,
+      rwdMode,
+      handleChangeGalleryLine,
+      rightArrow,
+      activeGalleryLine,
+    } = this.props;
     const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode]);
 
     const dots = [];
@@ -65,6 +77,7 @@ class Brand extends React.Component {
         </li>
       );
     }
+
     return (
       <Swipeable leftAction={this.leftAction} rightAction={this.rightAction}>
         <div className={styles.root}>
@@ -79,11 +92,13 @@ class Brand extends React.Component {
                 </div>
               </div>
             </div>
-
             <div className={`row ${styles.marksRow}`}>
               <div className={`col ${styles.brandBox}`}>
                 <div className={styles.brandsButtons}>
-                  <Button className={styles.button}>
+                  <Button
+                    className={styles.button}
+                    // onClick={dots}
+                  >
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                   </Button>
                 </div>
@@ -102,7 +117,12 @@ class Brand extends React.Component {
                     </div>
                   ))}
                 <div className={styles.brandsButtons}>
-                  <Button className={styles.button}>
+                  <Button
+                    className={styles.button}
+                    // onClick={dots}
+                    onClick={() => handleChangeGalleryLine(rightArrow)}
+                    disabled={isDisabledRightArrow(brands.length, activeGalleryLine)}
+                  >
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
                   </Button>
                 </div>
@@ -114,10 +134,15 @@ class Brand extends React.Component {
     );
   }
 }
+
 Brand.propTypes = {
   brands: PropTypes.array,
   id: PropTypes.string,
   rwdMode: PropTypes.string,
+  handleChangeGalleryLine: PropTypes.func,
+  rightArrow: PropTypes.string,
+  activeGalleryLine: PropTypes.number,
+  leftArrow: PropTypes.string,
 };
 
 Brand.defaultProps = {

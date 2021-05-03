@@ -4,9 +4,11 @@ import Brand from './Brand';
 
 import { getBrandMarks } from '../../../redux/brandsRedux.js';
 import { getRwdMode } from '../../../redux/configRedux.js';
+// import BrandGallery from './BrandGallery.js';
 
 const mapStateToProps = state => ({
   brands: getBrandMarks(state),
   rwdMode: getRwdMode(state),
 });
 export default connect(mapStateToProps)(Brand);
+// export default connect(mapStateToProps)(BrandGallery);
