@@ -8,11 +8,6 @@ import styles from './Brand.module.scss';
 import Button from '../../common/Button/Button';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
-const brandNumber = 6;
-
-const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) =>
-  thumbnailLength / brandNumber <= activeGalleryLine + 1 ? true : false;
-
 class Brand extends React.Component {
   leftAction = this.changePagePrev.bind(this);
   rightAction = this.changePageNext.bind(this);
@@ -48,6 +43,7 @@ class Brand extends React.Component {
 
   changePageNext() {
     let currentPage = this.state.activePage;
+
     if (currentPage !== 0) {
       this.handlePageChange(currentPage - 1);
     }
@@ -55,13 +51,7 @@ class Brand extends React.Component {
 
   render() {
     const { activePage } = this.state;
-    const {
-      brands,
-      rwdMode,
-      handleChangeGalleryLine,
-      rightArrow,
-      activeGalleryLine,
-    } = this.props;
+    const { brands, rwdMode } = this.props;
     const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode]);
 
     const dots = [];
@@ -97,7 +87,10 @@ class Brand extends React.Component {
                 <div className={styles.brandsButtons}>
                   <Button
                     className={styles.button}
-                    // onClick={dots}
+                    onClick={event => {
+                      event.preventDefault();
+                      this.rightAction(pagesCount);
+                    }}
                   >
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                   </Button>
@@ -119,9 +112,10 @@ class Brand extends React.Component {
                 <div className={styles.brandsButtons}>
                   <Button
                     className={styles.button}
-                    // onClick={dots}
-                    onClick={() => handleChangeGalleryLine(rightArrow)}
-                    disabled={isDisabledRightArrow(brands.length, activeGalleryLine)}
+                    onClick={event => {
+                      event.preventDefault();
+                      this.handlePageChange(activePage + 1);
+                    }}
                   >
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
                   </Button>
