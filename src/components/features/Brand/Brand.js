@@ -22,7 +22,11 @@ class Brand extends React.Component {
   };
 
   handlePageChange(page) {
-    this.setState({ activePage: page });
+    this.setState({ className: `${styles.fadeStart}` });
+    setTimeout(() => {
+      this.setState({ activePage: page });
+      this.setState({ className: `${styles.fadeEnd}` });
+    }, 600);
   }
 
   changePagePrev() {
