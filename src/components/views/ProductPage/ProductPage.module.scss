@@ -7,4 +7,9 @@
   h3 span{
     color: $orange;
   }
+
+  .tabComponent {
+    padding-left: 0;
+    border: 1px solid $global-border-color;
+  }
 }
