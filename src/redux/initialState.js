@@ -299,6 +299,7 @@ const initialState = {
         'https://antyki24.pl/environment/cache/images/500_500_productGfx_e1be05b730a946274d13299ecc6230bc.jpg',
       isFavourite: false,
       compare: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-19',
@@ -312,6 +313,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       saleOff: true,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -338,6 +340,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       saleOff: true,
+      topSeller: true,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -362,6 +365,7 @@ const initialState = {
       photoBackground: 'https://lissy.pl/wp-content/uploads/Witryna-150-Lugo.jpg',
       isFavourite: false,
       compare: false,
+      saleOff: true,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -374,6 +378,8 @@ const initialState = {
         'https://lissy.pl/wp-content/uploads/szafka-nocna-Lugo-aranz.jpg',
       isFavourite: true,
       compare: false,
+      saleOff: true,
+      topRated: true,
     },
     {
       id: 'henriksdal-1',

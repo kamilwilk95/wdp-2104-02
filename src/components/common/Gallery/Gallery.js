@@ -17,21 +17,13 @@ const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
   addFavourite({ id: id, isFavourite: !isFavourite });
 };
 
-const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) => {
-  if (thumbnailLength / photoNumber <= activeGalleryLine + 1) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) =>
+  thumbnailLength / photoNumber <= activeGalleryLine + 1 ? true : false;
 
-const setBackgroundPhoto = (activeProductPhoto, activePhotoBackground) => {
-  if (activeProductPhoto !== '') {
-    return `url(${activeProductPhoto})`;
-  } else {
-    return `url(${activePhotoBackground})`;
-  }
-};
+const setBackgroundPhoto = (activeProductPhoto, activePhotoBackground) =>
+  activeProductPhoto !== ''
+    ? `url(${activeProductPhoto})`
+    : `url(${activePhotoBackground})`;
 
 const toggleCompare = (
   id,
@@ -48,6 +40,11 @@ const toggleCompare = (
     removeCompare(id);
   }
 };
+
+const setActivePhoto = (photo, products, activeProductId) =>
+  activeProductId ? products.find(({ id }) => id === activeProductId) : photo;
+
+const isDefiniedOldPrice = price => (price ? '$' + price : null);
 
 const Gallery = ({
   activeCategorySales,
@@ -66,9 +63,11 @@ const Gallery = ({
   activeProductPhoto,
   changeProduct,
   activeProduct,
+  activeClassName,
+  photoClassName,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
-  const activePhoto = activeProduct.id ? activeProduct : photos[0];
+  const activePhoto = setActivePhoto(photos[0], products, activeProduct.id);
 
   const thumbnail = photos
     .slice(activeGalleryLine * photoNumber, (activeGalleryLine + 1) * photoNumber)
@@ -113,7 +112,7 @@ const Gallery = ({
             </li>
           ))}
         </ul>
-        <div className={'col ' + styles.carousel}>
+        <div className={`col + ${styles.carousel} + ${activeClassName}`}>
           <div>
             <div className='row'>
               <div className={'col-1 ' + styles.tabButtons}>
@@ -128,7 +127,6 @@ const Gallery = ({
                     )
                   }
                 >
-                  <span className={styles.tooltip}>Add to favourite</span>
                   <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
                 </Button>
 
@@ -161,7 +159,7 @@ const Gallery = ({
               </div>
               <div className='col-11'>
                 <div
-                  className={styles.mainPhoto}
+                  className={`${styles.mainPhoto} + ${photoClassName}`}
                   style={{
                     backgroundImage: setBackgroundPhoto(
                       activeProductPhoto,
@@ -172,7 +170,9 @@ const Gallery = ({
                 <div className={styles.prices}>
                   <div className={styles.priceWheel}>
                     <h5>$ {activePhoto.price}</h5>
-                    <h6 className={styles.oldPrice}>$ {activePhoto.oldPrice}</h6>
+                    <h6 className={styles.oldPrice}>
+                      {isDefiniedOldPrice(activePhoto.oldPrice)}
+                    </h6>
                   </div>
                 </div>
                 <div className={styles.rating}>
@@ -229,6 +229,8 @@ Gallery.propTypes = {
   activeProductPhoto: PropTypes.string,
   changeProduct: PropTypes.func,
   activeProduct: PropTypes.any,
+  activeClassName: PropTypes.string,
+  photoClassName: PropTypes.string,
 };
 
 export default Gallery;

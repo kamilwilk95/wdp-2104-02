@@ -18,13 +18,18 @@ export class FurnitureGallery extends Component {
     activeCategorySales: TOP_SELLER,
     activeGalleryLine: 0,
     activeProductPhoto: '',
-    activeProduct: [],
+    activeProduct: '',
+    className: styles.fadeEnd,
+    photoClassName: styles.fadeEnd,
   };
 
   handleChangeCategory = name => {
     this.setState({
-      activeCategorySales: name,
+      className: `${styles.fadeStart}`,
     });
+    setTimeout(() => {
+      this.setState({ className: `${styles.fadeEnd}`, activeCategorySales: name });
+    }, 300);
   };
 
   handleChangeGalleryLine = changingButtons => {
@@ -41,8 +46,14 @@ export class FurnitureGallery extends Component {
 
   handleChangeProductPhoto = photoAddress => {
     this.setState({
-      activeProductPhoto: photoAddress,
+      photoClassName: `${styles.fadeStart}`,
     });
+    setTimeout(() => {
+      this.setState({
+        activeProductPhoto: photoAddress,
+        photoClassName: `${styles.fadeEnd}`,
+      });
+    }, 300);
   };
 
   handleChangeProduct = clickedProduct => {
@@ -99,6 +110,8 @@ export class FurnitureGallery extends Component {
                 activeProductPhoto={this.state.activeProductPhoto}
                 changeProduct={this.handleChangeProduct}
                 activeProduct={this.state.activeProduct}
+                activeClassName={this.state.className}
+                photoClassName={this.state.photoClassName}
               />
             </div>
             <div className='col-6'>
