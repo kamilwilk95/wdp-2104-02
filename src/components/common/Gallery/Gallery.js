@@ -10,14 +10,13 @@ import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
 const headerText = ['featured', 'top seller', 'sale off', 'top rated'];
-const photoNumber = 6;
 
 const addFurnitureToFavourite = (id, isFavourite, event, addFavourite) => {
   event.preventDefault();
   addFavourite({ id: id, isFavourite: !isFavourite });
 };
 
-const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) =>
+const isDisabledRightArrow = (thumbnailLength, activeGalleryLine, photoNumber) =>
   thumbnailLength / photoNumber <= activeGalleryLine + 1 ? true : false;
 
 const setBackgroundPhoto = (activeProductPhoto, activePhotoBackground) =>
@@ -65,6 +64,7 @@ const Gallery = ({
   activeProduct,
   activeClassName,
   photoClassName,
+  photoNumber,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
   const activePhoto = setActivePhoto(photos[0], products, activeProduct.id);
@@ -200,7 +200,11 @@ const Gallery = ({
               <button
                 className={styles.arrowButton}
                 onClick={() => handleChangeGalleryLine(rightArrow)}
-                disabled={isDisabledRightArrow(photos.length, activeGalleryLine)}
+                disabled={isDisabledRightArrow(
+                  photos.length,
+                  activeGalleryLine,
+                  photoNumber
+                )}
               >
                 <i className={[styles.arrow, styles.right].join(' ')}></i>
               </button>
@@ -231,6 +235,7 @@ Gallery.propTypes = {
   activeProduct: PropTypes.any,
   activeClassName: PropTypes.string,
   photoClassName: PropTypes.string,
+  photoNumber: PropTypes.number,
 };
 
 export default Gallery;

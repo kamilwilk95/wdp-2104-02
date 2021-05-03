@@ -23,6 +23,13 @@ export class FurnitureGallery extends Component {
     photoClassName: styles.fadeEnd,
   };
 
+  rwdPhotosInRow = {
+    // osoba która będzie robić RWD może zmienić wartości
+    desktop: 6,
+    tablet: 6,
+    mobile: 6,
+  };
+
   handleChangeCategory = name => {
     this.setState({
       className: `${styles.fadeStart}`,
@@ -63,7 +70,14 @@ export class FurnitureGallery extends Component {
   };
 
   render() {
-    const { products, addFavourite, addRating, addCompare, removeCompare } = this.props;
+    const {
+      products,
+      addFavourite,
+      addRating,
+      addCompare,
+      removeCompare,
+      rwdMode,
+    } = this.props;
 
     const { activeCategorySales } = this.state;
 
@@ -87,6 +101,8 @@ export class FurnitureGallery extends Component {
           return null;
       }
     });
+
+    let photoNumber = this.rwdPhotosInRow[rwdMode];
 
     return (
       <div className={styles.root}>
@@ -112,6 +128,7 @@ export class FurnitureGallery extends Component {
                 activeProduct={this.state.activeProduct}
                 activeClassName={this.state.className}
                 photoClassName={this.state.photoClassName}
+                photoNumber={photoNumber}
               />
             </div>
             <div className='col-6'>
@@ -146,6 +163,7 @@ FurnitureGallery.propTypes = {
   addRating: PropTypes.func,
   addCompare: PropTypes.func,
   removeCompare: PropTypes.func,
+  rwdMode: PropTypes.any,
 };
 
 export default FurnitureGallery;
