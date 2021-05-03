@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tabs.module.scss';
 
-const Tabs = ({ config, activeTab, changeActiveCategory }) => {
+const Tabs = ({ config }) => {
+  const [activeTab, setActiveTab] = React.useState('Reviews (0)');
+
   const activeSheet = config.find(item => item.title === activeTab);
 
   return (
@@ -16,10 +18,7 @@ const Tabs = ({ config, activeTab, changeActiveCategory }) => {
                 styles.tabsItem + ' ' + (item.title === activeTab && styles.active)
               }
             >
-              <a
-                className={styles.tabsLink}
-                onClick={() => changeActiveCategory(item.title)}
-              >
+              <a className={styles.tabsLink} onClick={() => setActiveTab(item.title)}>
                 {item.title}
               </a>
             </li>
