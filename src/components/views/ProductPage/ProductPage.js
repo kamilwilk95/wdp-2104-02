@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
-import Description from './Description';
-import Reviews from './Reviews';
-import Tabs from './Tabs';
+import Tabs from '../../common/Tabs/Tabs';
+import Description from '../../common/TabsDescription/Description';
+import Reviews from '../../common/TabsReviews/Reviews';
+import CustomTab from '../../common/TabsCustomTab/CustomTab';
+import Specifications from '../../common/TabsSpecifications/Specifications';
 
 const config = [
   {
@@ -11,14 +13,22 @@ const config = [
     component: <Description />,
   },
   {
-    title: 'Reviews',
+    title: 'Reviews (0)',
     component: <Reviews />,
+  },
+  {
+    title: 'Specifications',
+    component: <Specifications />,
+  },
+  {
+    title: 'Custom Tab',
+    component: <CustomTab />,
   },
 ];
 
 class ProductPage extends React.Component {
   state = {
-    activeTabCategory: 'Reviews',
+    activeTabCategory: 'Reviews (0)',
   };
 
   handleChangeActiveCategory = title => {
@@ -44,7 +54,7 @@ class ProductPage extends React.Component {
           </div>
         </div>
         <div className={'row'}>
-          <div className={`col-md-12`}>
+          <div className={`col-md-12 ${styles.tabComponent}`}>
             <Tabs
               config={config}
               activeTab={this.state.activeTabCategory}

@@ -2,24 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tabs.module.scss';
 
-//const headerText =['Description' , 'Reviews' , 'Specification' , 'Custom Tab'];
-
 const Tabs = ({ config, activeTab, changeActiveCategory }) => {
   const activeSheet = config.find(item => item.title === activeTab);
 
   return (
     <div className='container'>
       <div className='row'>
-        <ul className={styles.navHeader}>
+        <ul className={styles.tabsHeader}>
           {config.map(item => (
             <li
               key={item.title}
               className={
-                styles.navItem + ' ' + (item.title === activeTab && styles.active)
+                styles.tabsItem + ' ' + (item.title === activeTab && styles.active)
               }
             >
               <a
-                className={styles.navLink}
+                className={styles.tabsLink}
                 onClick={() => changeActiveCategory(item.title)}
               >
                 {item.title}
@@ -28,7 +26,7 @@ const Tabs = ({ config, activeTab, changeActiveCategory }) => {
           ))}
         </ul>
       </div>
-      <div className='row'>{activeSheet.component}</div>
+      <div className={`row + ${styles.content}`}>{activeSheet.component}</div>
     </div>
   );
 };
