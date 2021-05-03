@@ -33,7 +33,6 @@ const Tabs = ({ config }) => {
 Tabs.propTypes = {
   config: PropTypes.array,
   activeTab: PropTypes.string,
-  changeActiveCategory: PropTypes.func,
 };
 
 export default Tabs;

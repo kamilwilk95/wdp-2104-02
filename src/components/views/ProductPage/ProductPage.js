@@ -27,16 +27,6 @@ const config = [
 ];
 
 class ProductPage extends React.Component {
-  state = {
-    activeTabCategory: 'Reviews (0)',
-  };
-
-  handleChangeActiveCategory = title => {
-    this.setState({
-      activeTabCategory: title,
-    });
-  };
-
   render() {
     const { productId } = this.props.match.params;
 
@@ -55,11 +45,7 @@ class ProductPage extends React.Component {
         </div>
         <div className={'row'}>
           <div className={`col-md-12 ${styles.tabComponent}`}>
-            <Tabs
-              config={config}
-              activeTab={this.state.activeTabCategory}
-              changeActiveCategory={this.handleChangeActiveCategory}
-            />
+            <Tabs config={config} />
           </div>
         </div>
       </div>
