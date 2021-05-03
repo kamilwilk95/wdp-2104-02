@@ -1,7 +1,8 @@
 @import "../../../styles/settings.scss";
-  
+
 .marksRow{
   margin-bottom: 20px;
+  position: relative;
 
   .mark {
     flex-basis: 15%;
@@ -15,8 +16,6 @@
   display: flex;
   border-top: 1px solid $color-light-secondary;
   border-bottom: 1px solid $color-light-secondary;
-  margin-right: auto;
-  margin-left: auto;
   padding: 10px 0;
 }
 
@@ -26,37 +25,87 @@
   height: 60px;
 }
 
-.arrowButton {
-  border: 0;
-  background-color: $black-primary;
-  padding: 2%;
-}
-
-.thumbnail {
-  background-color: $black-primary;
-  justify-content: space-between;
+.brandsButtons {
+  width: 50px;
   height: 60px;
+  display: flex;
+  background: $text-color;
   margin-top: 5px;
+
+  .button {
+    &:hover {
+      background: $primary;
+    }
+    color: $color-light-secondary;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+    padding: 5px;
+  }
 }
 
-.arrow {
-  border: solid $white-primary;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  display: block !important;
-}
+.panelBar {
+  margin-bottom: 30px;
+  position: relative;
 
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  
-}
+  :global(.row) > * {
+    border-bottom: 4px solid $global-border-color;
+  }
 
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+  .heading {
+    position: relative;
+    width: 100%;
+
+    h3 {
+      color: $primary;
+      text-transform: uppercase;
+      font-size: 20px;
+      line-height: 38px;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 45px;
+      border-bottom: 4px solid $primary;
+    }
+  }
+
+  .dots {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 1rem;
+      list-style: none;
+      background-color: $color-light-primary;
+      transform: translateY(15px);
+
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $color-light-secondary;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
 }
