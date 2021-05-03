@@ -45,7 +45,9 @@ export class FurnitureGallery extends Component {
                 canAddCompare={canAddCompare < 4 ? true : false}
               />
             </div>
-            <div className={'col-md-6 d-sm-block ' + styles.announceContainer}>
+            <div
+              className={'col-md-6 .d-sm-none .d-md-block' + styles.announceContainer}
+            >
               <div className={styles.announce}>
                 <h2 className={styles.announceTitle}>
                   FROM<span className={styles.announceSpan}> $50.80</span>

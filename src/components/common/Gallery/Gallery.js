@@ -8,6 +8,7 @@ import styles from './Gallery.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import Swipeable from './../Swipeable/Swipeable';
 
 const headerText = ['featured', 'top seller', 'sale off', 'top rated'];
 
@@ -153,6 +154,7 @@ const Gallery = ({
                 </div>
               </div>
             </div>
+
             <div className={'row ' + styles.thumbnail}>
               <button className={styles.arrowButton}>
                 <i className={[styles.arrow, styles.left].join(' ')}></i>
