@@ -25,6 +25,14 @@ const isDisabledRightArrow = (thumbnailLength, activeGalleryLine) => {
   }
 };
 
+const setBackgroundPhoto = (activeProductPhoto, activePhotoBackground) => {
+  if (activeProductPhoto !== '') {
+    return `url(${activeProductPhoto})`;
+  } else {
+    return `url(${activePhotoBackground})`;
+  }
+};
+
 const toggleCompare = (
   id,
   isCompare,
@@ -54,6 +62,8 @@ const Gallery = ({
   rightArrow,
   activeGalleryLine,
   leftArrow,
+  changeProductPhoto,
+  activeProductPhoto,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
   const activePhoto = photos[0];
@@ -67,6 +77,7 @@ const Gallery = ({
           className={
             styles.photo + ' ' + (activePhoto.id !== item.id && styles.activePhoto)
           }
+          onClick={() => changeProductPhoto(item.photoBackground)}
           style={{
             backgroundImage: `url(${item.photoBackground})`,
           }}
@@ -146,7 +157,10 @@ const Gallery = ({
                 <div
                   className={styles.mainPhoto}
                   style={{
-                    backgroundImage: `url(${activePhoto.photoBackground})`,
+                    backgroundImage: setBackgroundPhoto(
+                      activeProductPhoto,
+                      activePhoto.photoBackground
+                    ),
                   }}
                 ></div>
                 <div className={styles.prices}>
@@ -205,6 +219,8 @@ Gallery.propTypes = {
   rightArrow: PropTypes.string,
   activeGalleryLine: PropTypes.number,
   leftArrow: PropTypes.string,
+  changeProductPhoto: PropTypes.func,
+  activeProductPhoto: PropTypes.string,
 };
 
 export default Gallery;

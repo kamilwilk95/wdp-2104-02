@@ -124,6 +124,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      saleOff: true,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -137,6 +138,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      saleOff: true,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -178,6 +180,7 @@ const initialState = {
       topSeller: true,
       deals: true,
       dealsSmallUp: true,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -191,6 +194,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-11',
@@ -204,6 +208,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -217,6 +222,7 @@ const initialState = {
       isFavourite: false,
       compare: false,
       topSeller: true,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -280,6 +286,7 @@ const initialState = {
         'https://www.resmar.pl/pol_pl_Zestaw-mebli-kuchennych-290x215-cm-Modena-24536_1.jpg',
       isFavourite: false,
       compare: false,
+      featured: true,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -304,6 +311,7 @@ const initialState = {
         'https://i.dobrzemieszkaj.pl/i/72/13/41/r3/1920/meble-do-salonu-10-swietnych-kolekcji-na-kazda-kieszen.jpg',
       isFavourite: false,
       compare: false,
+      saleOff: true,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -316,6 +324,7 @@ const initialState = {
         'https://mebletwojemiejsce.pl/fotosD/13_meble_z_litego_drewna_na_wymiar_warszawa.jpg',
       isFavourite: false,
       compare: false,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -328,6 +337,7 @@ const initialState = {
         'https://meblini.pl/userdata/public/gfx/20450/krzeslo-TUGO-2-do-jadalni-kuchni.jpg',
       isFavourite: false,
       compare: false,
+      saleOff: true,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -340,6 +350,7 @@ const initialState = {
         'https://www.zyrandole24.pl/images/allegro_foto/zdjecia/K213/IMG_2244-30-01-19-01-10.jpeg',
       isFavourite: false,
       compare: false,
+      topRated: true,
     },
     {
       id: 'aenean-ru-bristique-23',

@@ -17,6 +17,7 @@ export class FurnitureGallery extends Component {
   state = {
     activeCategorySales: TOP_SELLER,
     activeGalleryLine: 0,
+    activeProductPhoto: '',
   };
 
   handleChangeCategory = name => {
@@ -35,6 +36,12 @@ export class FurnitureGallery extends Component {
         activeGalleryLine: prevState.activeGalleryLine - 1,
       }));
     }
+  };
+
+  handleChangeProductPhoto = photoAddress => {
+    this.setState({
+      activeProductPhoto: photoAddress,
+    });
   };
 
   render() {
@@ -81,6 +88,8 @@ export class FurnitureGallery extends Component {
                 rightArrow={RIGHT_ARROW}
                 leftArrow={LEFT_ARROW}
                 activeGalleryLine={this.state.activeGalleryLine}
+                changeProductPhoto={this.handleChangeProductPhoto}
+                activeProductPhoto={this.state.activeProductPhoto}
               />
             </div>
             <div className='col-6'>
