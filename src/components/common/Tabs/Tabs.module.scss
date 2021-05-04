@@ -1,0 +1,45 @@
+@import "../../../styles/settings.scss";
+
+.tabsHeader {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none; 
+    width: 100%;
+
+    .tabsItem {
+        width: auto;
+        padding: 1rem;
+        border-right: 1px solid $global-border-color;
+        border-bottom: 1px solid $global-border-color;
+
+        &.active {
+            border-bottom: none;
+
+            a {
+                color:$primary
+            }
+        }
+
+        .tabsLink {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        }
+
+        a {
+            position: relative;
+            color: $content-color;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+}
+
+.content {
+    padding: 2rem,
+}

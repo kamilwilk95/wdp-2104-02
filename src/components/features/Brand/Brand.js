@@ -141,11 +141,7 @@ Brand.propTypes = {
   brands: PropTypes.array,
   id: PropTypes.string,
   rwdMode: PropTypes.string,
-  handleChangeBrandLine: PropTypes.func,
-  rightArrow: PropTypes.string,
-  leftArrow: PropTypes.string,
   brandNumber: PropTypes.number,
-  brandLength: PropTypes.number,
 };
 
 Brand.defaultProps = {
