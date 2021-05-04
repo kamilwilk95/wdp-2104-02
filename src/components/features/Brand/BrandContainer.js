@@ -9,4 +9,5 @@ const mapStateToProps = state => ({
   brands: getBrandMarks(state),
   rwdMode: getRwdMode(state),
 });
+
 export default connect(mapStateToProps)(Brand);

@@ -11,7 +11,6 @@
     text-align: center;
   }
 }
-
 .brandBox {
   display: flex;
   border-top: 1px solid $color-light-secondary;
@@ -24,39 +23,35 @@
   width: 80px;
   height: 60px;
 }
-
 .brandsButtons {
   width: 50px;
   height: 60px;
   display: flex;
-  background: $text-color;
   margin-top: 5px;
 
   .button {
-    &:hover {
-      background: $primary;
-    }
     color: $color-light-secondary;
     display: flex;
     justify-content: center;
     flex-grow: 1;
     align-items: center;
     padding: 5px;
+    background-color: $text-color;
+    border: none;
+    &:enabled:hover{
+      background: $primary;
+    }
   }
 }
-
 .panelBar {
   margin-bottom: 30px;
   position: relative;
-
   :global(.row) > * {
     border-bottom: 4px solid $global-border-color;
   }
-
   .heading {
     position: relative;
     width: 100%;
-
     h3 {
       color: $primary;
       text-transform: uppercase;
@@ -65,7 +60,6 @@
       margin: 0;
       letter-spacing: 1px;
     }
-
     &::before {
       content: "";
       position: absolute;
@@ -75,23 +69,19 @@
       border-bottom: 4px solid $primary;
     }
   }
-
   .dots {
     position: absolute;
     right: 0;
     top: 0;
-
     ul {
       margin: 0;
       padding: 0 0 0 1rem;
       list-style: none;
       background-color: $color-light-primary;
       transform: translateY(15px);
-
       li {
         display: inline-block;
         margin-left: 0.5rem;
-
         a {
           display: block;
           width: 13px;
@@ -99,7 +89,6 @@
           border-radius: 6px;
           background-color: $color-light-secondary;
           font-size: 0;
-
           &.active,
           &:hover {
             background-color: $primary;
