@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button/Button';
 import StarRating from '../StarRating/StarRating';
-
+import Swipeable from './../../common/Swipeable/Swipeable';
 import styles from './Gallery.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faEye } from '@fortawesome/free-regular-svg-icons';
@@ -65,6 +65,8 @@ const Gallery = ({
   activeClassName,
   photoClassName,
   photoNumber,
+  leftAction,
+  rightAction,
 }) => {
   const photos = products.filter(product => product.category === 'bed');
   const activePhoto = setActivePhoto(photos[0], products, activeProduct.id);
@@ -188,27 +190,29 @@ const Gallery = ({
                 </div>
               </div>
             </div>
-            <div className={'row ' + styles.thumbnail}>
-              <button
-                className={styles.arrowButton}
-                disabled={activeGalleryLine === 0}
-                onClick={() => handleChangeGalleryLine(leftArrow)}
-              >
-                <i className={[styles.arrow, styles.left].join(' ')}></i>
-              </button>
-              {thumbnail}
-              <button
-                className={styles.arrowButton}
-                onClick={() => handleChangeGalleryLine(rightArrow)}
-                disabled={isDisabledRightArrow(
-                  photos.length,
-                  activeGalleryLine,
-                  photoNumber
-                )}
-              >
-                <i className={[styles.arrow, styles.right].join(' ')}></i>
-              </button>
-            </div>
+            <Swipeable leftAction={leftAction} rightAction={rightAction}>
+              <div className={'row ' + styles.thumbnail}>
+                <button
+                  className={styles.arrowButton}
+                  disabled={activeGalleryLine === 0}
+                  onClick={() => handleChangeGalleryLine(leftArrow)}
+                >
+                  <i className={[styles.arrow, styles.left].join(' ')}></i>
+                </button>
+                {thumbnail}
+                <button
+                  className={styles.arrowButton}
+                  onClick={() => handleChangeGalleryLine(rightArrow)}
+                  disabled={isDisabledRightArrow(
+                    photos.length,
+                    activeGalleryLine,
+                    photoNumber
+                  )}
+                >
+                  <i className={[styles.arrow, styles.right].join(' ')}></i>
+                </button>
+              </div>
+            </Swipeable>
           </div>
         </div>
       </div>
@@ -236,6 +240,8 @@ Gallery.propTypes = {
   activeClassName: PropTypes.string,
   photoClassName: PropTypes.string,
   photoNumber: PropTypes.number,
+  rightAction: PropTypes.func,
+  leftAction: PropTypes.func,
 };
 
 export default Gallery;
