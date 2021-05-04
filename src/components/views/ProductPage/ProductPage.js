@@ -6,6 +6,7 @@ import Description from '../../common/TabsDescription/Description';
 import Reviews from '../../common/TabsReviews/Reviews';
 import CustomTab from '../../common/TabsCustomTab/CustomTab';
 import Specifications from '../../common/TabsSpecifications/Specifications';
+import SocialMedia from '../../common/SocialMedia/SocialMedia';
 
 const config = [
   {
@@ -41,6 +42,9 @@ class ProductPage extends React.Component {
           </div>
           <div className={`col-md-7 `}>
             <h5>Product Description Here</h5>
+            <div className={'row'}>
+              <SocialMedia />
+            </div>
           </div>
         </div>
         <div className={'row'}>
