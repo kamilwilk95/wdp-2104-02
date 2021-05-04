@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Brand.module.scss';
-import Button from '../../common/Button/Button';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
 class Brand extends React.Component {
   leftAction = this.changePagePrev.bind(this);
   rightAction = this.changePageNext.bind(this);
+
   state = {
     activePage: 0,
   };
 
-  rwdCardsInRow = {
+  rwdBrandsInRow = {
     desktop: 6,
     tablet: 6,
     mobile: 4,
@@ -33,7 +33,7 @@ class Brand extends React.Component {
     let currentPage = this.state.activePage;
     const { brands, rwdMode } = this.props;
 
-    const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode.rwdMode]);
+    const pagesCount = Math.ceil(brands.length / this.rwdBrandsInRow[rwdMode.rwdMode]);
 
     if (currentPage < pagesCount - 1) {
       this.handlePageChange(currentPage + 1);
@@ -41,17 +41,23 @@ class Brand extends React.Component {
   }
 
   changePageNext() {
-    let currentBrand = this.state.activePage;
+    let currentPage = this.state.activePage;
 
-    if (currentBrand !== 0) {
-      this.handlePageChange(currentBrand - 1);
+    if (currentPage !== 0) {
+      this.handlePageChange(currentPage - 1);
     }
   }
 
   render() {
     const { activePage } = this.state;
     const { brands, rwdMode } = this.props;
-    const pagesCount = Math.ceil(brands.length / this.rwdCardsInRow[rwdMode]);
+
+    const brandNumber = this.rwdBrandsInRow[rwdMode];
+
+    const pagesCount = Math.ceil(brands.length / brandNumber);
+
+    const isDisabledRightArrow = (pagesCount, activePage, brandNumber) =>
+      pagesCount / brandNumber <= activePage + 1 ? true : false;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -81,19 +87,22 @@ class Brand extends React.Component {
                 </div>
               </div>
             </div>
-
             <div className={`row ${styles.marksRow}`}>
               <div className={`col ${styles.brandBox}`}>
                 <div className={styles.brandsButtons}>
-                  <Button className={styles.button}>
+                  <button
+                    className={styles.button}
+                    disabled={activePage === 0}
+                    onClick={event => {
+                      event.preventDefault();
+                      this.handlePageChange(activePage - 1);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-                  </Button>
+                  </button>
                 </div>
                 {brands
-                  .slice(
-                    activePage * this.rwdCardsInRow[rwdMode],
-                    (activePage + 1) * this.rwdCardsInRow[rwdMode]
-                  )
+                  .slice(activePage * brandNumber, (activePage + 1) * brandNumber)
                   .map(item => (
                     <div key={item.id} className={`col ${styles.mark}`}>
                       <img
@@ -104,9 +113,20 @@ class Brand extends React.Component {
                     </div>
                   ))}
                 <div className={styles.brandsButtons}>
-                  <Button className={styles.button}>
+                  <button
+                    className={styles.button}
+                    onClick={event => {
+                      event.preventDefault();
+                      this.handlePageChange(activePage + 1);
+                    }}
+                    disabled={isDisabledRightArrow(
+                      brands.length,
+                      activePage,
+                      brandNumber
+                    )}
+                  >
                     <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -116,14 +136,15 @@ class Brand extends React.Component {
     );
   }
 }
+
 Brand.propTypes = {
   brands: PropTypes.array,
   id: PropTypes.string,
   rwdMode: PropTypes.string,
+  brandNumber: PropTypes.number,
 };
 
 Brand.defaultProps = {
   brands: [],
 };
-
 export default Brand;
