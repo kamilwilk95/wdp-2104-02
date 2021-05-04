@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import {
+  // faStar,
+  faExchangeAlt,
+  faShoppingBasket,
+} from '@fortawesome/free-solid-svg-icons';
+// eslint-disable-next-line no-unused-vars
 import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarRating from '../StarRating/StarRating';
@@ -40,6 +45,7 @@ const ProductBox = ({
   id,
   addFavourite,
   isFavourite,
+  isFavorite,
   compare,
   myRating,
   addRating,
@@ -87,7 +93,7 @@ const ProductBox = ({
               icon={faHeart}
               className={isFavourite ? styles.isFavourite : ''}
             >
-              Favourite
+              Favorite
             </FontAwesomeIcon>
           </Button>
           <Button
@@ -140,6 +146,7 @@ ProductBox.propTypes = {
   addFavourite: PropTypes.func,
   id: PropTypes.string,
   isFavourite: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   compare: PropTypes.bool,
   myRating: PropTypes.any,
   addRating: PropTypes.func,

@@ -4,9 +4,8 @@ import initialState from './initialState';
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
-
-import brandsRedux from './brandsRedux';
 import configReducer from './configRedux';
+import brandsRedux from './brandsRedux';
 import commentsReducer from './comentsRedux';
 
 // define reducers

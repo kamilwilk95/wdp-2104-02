@@ -1,8 +1,7 @@
 @import "../../../styles/settings.scss";
-
+  
 .marksRow{
   margin-bottom: 20px;
-  position: relative;
 
   .mark {
     flex-basis: 15%;
@@ -15,6 +14,8 @@
   display: flex;
   border-top: 1px solid $color-light-secondary;
   border-bottom: 1px solid $color-light-secondary;
+  margin-right: auto;
+  margin-left: auto;
   padding: 10px 0;
 }
 
@@ -23,6 +24,42 @@
   width: 80px;
   height: 60px;
 }
+
+.arrowButton {
+  border: 0;
+  background-color: $black-primary;
+  padding: 2%;
+}
+
+.thumbnail {
+  background-color: $black-primary;
+  justify-content: space-between;
+  height: 60px;
+  margin-top: 5px;
+}
+
+.arrow {
+  border: solid $white-primary;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block !important;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 .brandsButtons {
   width: 50px;
   height: 60px;

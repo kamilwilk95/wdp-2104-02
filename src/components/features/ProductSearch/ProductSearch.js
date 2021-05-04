@@ -30,7 +30,6 @@ const ProductSearch = () => (
           </ul>
         </li>
       </ul>
-
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>

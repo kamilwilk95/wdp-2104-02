@@ -91,6 +91,7 @@
         max-width: 33.33%;
       }
     }
+   
   }
   /*Mobile*/
   @media (max-width: 767px){
@@ -131,6 +132,10 @@
         width: 100%;
       }
     }
+
+    .announce {
+      display: none;
+    }
   }
 }
 
@@ -138,11 +143,15 @@
 .fadeStart {
   animation-name: fade-start;
   animation-duration: $transition;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .fadeEnd {
   animation-name: fade-end;
   animation-duration: $transition;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @keyframes fade-start {
