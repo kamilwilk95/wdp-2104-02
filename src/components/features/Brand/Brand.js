@@ -50,7 +50,7 @@ class Brand extends React.Component {
     }
   }
 
-  handleChangeBrandLine(page) {
+  handleChangeBrandLine() {
     let changingButtons = this.state.activePage;
 
     if (changingButtons === RIGHT_ARROW) {
