@@ -31,10 +31,7 @@ const SocialMedia = () => (
       Pinterest
     </Button>
     <Button variant='main' className={styles.button}>
-      <FontAwesomeIcon
-        icon={faLinkedinIn}
-        className={styles.iconBlue}
-      ></FontAwesomeIcon>{' '}
+      <FontAwesomeIcon icon={faLinkedinIn} className={styles.iconBlue}></FontAwesomeIcon>{' '}
       Linkedin
     </Button>
   </div>

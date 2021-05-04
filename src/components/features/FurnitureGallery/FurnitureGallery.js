@@ -14,6 +14,9 @@ const RIGHT_ARROW = 'rightArrow';
 const LEFT_ARROW = 'leftArrow';
 
 export class FurnitureGallery extends Component {
+  leftAction = this.galleryLineNext.bind(this);
+  rightAction = this.galleryLinePrev.bind(this);
+
   state = {
     activeCategorySales: TOP_SELLER,
     activeGalleryLine: 0,
@@ -24,10 +27,9 @@ export class FurnitureGallery extends Component {
   };
 
   rwdPhotosInRow = {
-    // osoba która będzie robić RWD może zmienić wartości
     desktop: 6,
-    tablet: 6,
-    mobile: 6,
+    tablet: 4,
+    mobile: 2,
   };
 
   handleChangeCategory = name => {
@@ -50,6 +52,18 @@ export class FurnitureGallery extends Component {
       }));
     }
   };
+
+  galleryLineNext() {
+    let currentLine = this.state.activeGalleryLine;
+    this.setState({ activeGalleryLine: currentLine + 1 });
+  }
+
+  galleryLinePrev() {
+    let currentLine = this.state.activeGalleryLine;
+    if (currentLine > 0) {
+      this.setState({ activeGalleryLine: currentLine - 1 });
+    }
+  }
 
   handleChangeProductPhoto = photoAddress => {
     this.setState({
@@ -108,7 +122,7 @@ export class FurnitureGallery extends Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className='col-lg-6 col-12'>
+            <div className='col-md-6 col-12'>
               <Gallery
                 activeCategorySales={activeCategorySales}
                 products={featuredProducts}
@@ -129,9 +143,13 @@ export class FurnitureGallery extends Component {
                 activeClassName={this.state.className}
                 photoClassName={this.state.photoClassName}
                 photoNumber={photoNumber}
+                leftAction={this.leftAction}
+                rightAction={this.rightAction}
               />
             </div>
-            <div className={'col-6 d-none d-lg-block ' + styles.announceContainer}>
+            <div
+              className={'col-md-6 .d-sm-none .d-md-block' + styles.announceContainer}
+            >
               <div className={styles.announce}>
                 <h2 className={styles.announceTitle}>
                   FROM<span className={styles.announceSpan}> $50.80</span>

@@ -66,6 +66,7 @@
                 cursor: pointer;
                 text-transform: uppercase;
                 font-weight: 600;
+                height: 100%;
 
                 &.active {
                     color: $primary;
@@ -274,6 +275,9 @@
     }
     .navItem a {
       height: 100%;
+      max-width: 100%;
+      font: 0.6em sans-serif;
+
     }
   }
   /*Mobile*/
