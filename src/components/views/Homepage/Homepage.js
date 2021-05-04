@@ -9,7 +9,6 @@ import PromoBox from '../../features/PromoBox/PromoBoxContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 
 import FurnitureGallery from './../../features/FurnitureGallery/FurnitureGalleryContainer';
-import SocialMedia from '../../common/SocialMedia/SocialMedia';
 import Deals from '../../features/Deals/DealsBox';
 
 const Homepage = () => (
@@ -21,7 +20,6 @@ const Homepage = () => (
     <Brand />
     <Feedback />
     <FurnitureGallery />
-    <SocialMedia />
   </div>
 );
 
