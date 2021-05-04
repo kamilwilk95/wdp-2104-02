@@ -60,7 +60,9 @@ export class FurnitureGallery extends Component {
 
   galleryLinePrev() {
     let currentLine = this.state.activeGalleryLine;
-    this.setState({ activeGalleryLine: currentLine - 1 });
+    if (currentLine > 0) {
+      this.setState({ activeGalleryLine: currentLine - 1 });
+    }
   }
 
   handleChangeProductPhoto = photoAddress => {
