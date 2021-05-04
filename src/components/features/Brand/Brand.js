@@ -7,8 +7,6 @@ import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons
 import styles from './Brand.module.scss';
 import Swipeable from '../../common/Swipeable/Swipeable';
 
-const RIGHT_ARROW = 'rightArrow';
-
 class Brand extends React.Component {
   leftAction = this.changePagePrev.bind(this);
   rightAction = this.changePageNext.bind(this);
@@ -50,25 +48,11 @@ class Brand extends React.Component {
     }
   }
 
-  handleChangeBrandLine() {
-    let changingButtons = this.state.activePage;
-
-    if (changingButtons === RIGHT_ARROW) {
-      this.setState(prevState => ({
-        activePage: prevState.activePage + 1,
-      }));
-    } else {
-      this.setState(prevState => ({
-        activePage: prevState.activePage - 1,
-      }));
-    }
-  }
-
   render() {
     const { activePage } = this.state;
-    const { brands, rwdMode, leftArrow } = this.props;
+    const { brands, rwdMode } = this.props;
 
-    let brandNumber = this.rwdBrandsInRow[rwdMode];
+    const brandNumber = this.rwdBrandsInRow[rwdMode];
 
     const pagesCount = Math.ceil(brands.length / brandNumber);
 
@@ -111,7 +95,7 @@ class Brand extends React.Component {
                     disabled={activePage === 0}
                     onClick={event => {
                       event.preventDefault();
-                      this.handleChangeBrandLine(leftArrow);
+                      this.handlePageChange(activePage - 1);
                     }}
                   >
                     <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
