@@ -67,6 +67,7 @@ const Gallery = ({
   photoNumber,
   leftAction,
   rightAction,
+
 }) => {
   const photos = products.filter(product => product.category === 'bed');
   const activePhoto = setActivePhoto(photos[0], products, activeProduct.id);
@@ -190,6 +191,7 @@ const Gallery = ({
                 </div>
               </div>
             </div>
+
             <Swipeable leftAction={leftAction} rightAction={rightAction}>
               <div className={'row ' + styles.thumbnail}>
                 <button
@@ -242,6 +244,7 @@ Gallery.propTypes = {
   photoNumber: PropTypes.number,
   rightAction: PropTypes.func,
   leftAction: PropTypes.func,
+
 };
 
 export default Gallery;

@@ -143,6 +143,7 @@ export class FurnitureGallery extends Component {
                 photoNumber={photoNumber}
                 leftAction={this.leftAction}
                 rightAction={this.rightAction}
+
               />
             </div>
             <div

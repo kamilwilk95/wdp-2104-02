@@ -107,7 +107,12 @@
               size: cover;
               position: center;
               repeat: no-repeat;
-            }  
+            }
+            cursor: pointer; 
+
+            &:hover {
+              opacity: 1;
+            }
         }
 
         .activePhoto {
