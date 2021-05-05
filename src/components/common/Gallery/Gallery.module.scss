@@ -277,6 +277,7 @@
       height: 100%;
       max-width: 100%;
       font: 0.6em sans-serif;
+
     }
   }
   /*Mobile*/
@@ -324,6 +325,10 @@
       padding: 1px !important;
     }
 
+    .prices {
+      right: -150px;
+      bottom: -80px;
+    }
   }
 }
 
